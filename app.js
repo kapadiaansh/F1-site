@@ -10,7 +10,8 @@
     standingExpanded: false,
     resultExpanded: false,
     raceFilter: "all",
-    historyIndex: 0
+    historyIndex: 0,
+    newsSource: "all"
   };
 
   function formatDate(iso, options={}) {
@@ -206,6 +207,52 @@
     $("#historyCount").textContent = `${pad(state.historyIndex+1)} / ${pad(items.length)}`;
   }
 
+
+  function relativeTime(iso) {
+    const date = new Date(iso);
+    const seconds = Math.max(0, Math.floor((Date.now() - date.getTime()) / 1000));
+    if (seconds < 60) return "JUST NOW";
+    const mins = Math.floor(seconds / 60);
+    if (mins < 60) return `${mins}M AGO`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `${hours}H AGO`;
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days}D AGO`;
+    return new Intl.DateTimeFormat(undefined,{month:"short",day:"numeric"}).format(date).toUpperCase();
+  }
+
+  function renderNews() {
+    const feed = window.F1_NEWS || {updatedAt:null,items:[]};
+    let items = feed.items || [];
+    if (state.newsSource !== "all") items = items.filter(item => item.source === state.newsSource);
+
+    $("#newsUpdated").textContent = feed.updatedAt
+      ? `UPDATED ${relativeTime(feed.updatedAt)}`
+      : "LOCAL NEWS SNAPSHOT";
+
+    $("#newsCount").textContent = `${items.length} STORIES`;
+
+    if (!items.length) {
+      $("#newsGrid").innerHTML = `
+        <article class="news-card news-loading">
+          <span>NEWS DESK</span>
+          <h3>No stories from this source in the current feed.</h3>
+        </article>`;
+      return;
+    }
+
+    $("#newsGrid").innerHTML = items.slice(0,12).map((item,index) => `
+      <a class="news-card ${index===0 ? "featured" : ""}" href="${item.url}" target="_blank" rel="noopener noreferrer">
+        <div class="news-source-row">
+          <span class="news-source">${item.source}</span>
+          <span class="news-time">${relativeTime(item.published)}</span>
+        </div>
+        <h3>${item.title}</h3>
+        <p>${item.summary || "Open the original publisher for the full story."}</p>
+        <span class="read-source">Read at ${item.source}</span>
+      </a>`).join("");
+  }
+
   function populateCompare() {
     const html = D.drivers.map(d => `<option value="${d.number}">${d.name} · ${d.team}</option>`).join("");
     $("#compareA").innerHTML = html;
@@ -232,6 +279,14 @@
     $$(".calendar-filter button").forEach(btn => btn.addEventListener("click",() => {
       $$(".calendar-filter button").forEach(b=>b.classList.remove("active")); btn.classList.add("active");
       state.raceFilter=btn.dataset.raceFilter; renderCalendar();
+    }));
+
+
+    $$(".news-tabs button").forEach(btn => btn.addEventListener("click",() => {
+      $$(".news-tabs button").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      state.newsSource = btn.dataset.newsSource;
+      renderNews();
     }));
 
     $("#compareA").addEventListener("change",renderCompare);
@@ -269,6 +324,7 @@
     renderStandings();
     renderResults();
     renderCalendar();
+    renderNews();
     populateCompare();
     renderCompare();
     renderHistory();

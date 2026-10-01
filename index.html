@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#080a0f">
   <meta name="description" content="Independent Formula racing statistics, race weekends and history.">
   <title>APEX — Motorsport Data</title>
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link rel="stylesheet" href="styles.css?v=8">
 </head>
 <body>
   <div class="progress" id="progress"></div>
@@ -21,6 +21,7 @@
       <a href="#weekend">Weekend</a>
       <a href="#standings">Standings</a>
       <a href="#calendar">Calendar</a>
+      <a href="#news">News</a>
       <a href="#compare">Compare</a>
       <a href="#history">History</a>
     </nav>
@@ -215,6 +216,45 @@
       </div>
     </section>
 
+
+    <section class="section alt section-anchor" id="news">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="label">AUTOMATED NEWS DESK</p>
+            <h2>Latest F1 news</h2>
+          </div>
+          <div class="news-meta">
+            <span class="news-live"><i></i> AUTO REFRESH</span>
+            <span id="newsUpdated">Checking feed…</span>
+          </div>
+        </div>
+
+        <div class="news-controls reveal">
+          <div class="news-tabs" role="tablist" aria-label="News sources">
+            <button class="active" data-news-source="all">All sources</button>
+            <button data-news-source="Autosport">Autosport</button>
+            <button data-news-source="Motorsport.com">Motorsport.com</button>
+          </div>
+          <span>Headlines link directly to the original publisher.</span>
+        </div>
+
+        <div class="news-grid reveal" id="newsGrid">
+          <article class="news-card news-loading">
+            <span>NEWS</span><h3>Loading latest Formula 1 headlines…</h3>
+          </article>
+        </div>
+
+        <div class="news-footer reveal">
+          <p>
+            News is collected from publisher-provided Formula 1 RSS feeds. We display only
+            headline-level information and link readers to the original source.
+          </p>
+          <span id="newsCount"></span>
+        </div>
+      </div>
+    </section>
+
     <section class="section section-anchor" id="compare">
       <div class="container">
         <div class="section-head reveal">
@@ -275,12 +315,14 @@
       <p>Independent motorsport statistics & history project.</p>
       <div class="footer-right">
         <span>DATA UPDATED 30 SEP 2026</span>
-        <span>BUILD V7 · CLEAN REWRITE</span>
+        <span>BUILD V8 · AUTO NEWS + DATA CHECKS</span>
       </div>
     </div>
   </footer>
 
-  <script src="data.js?v=7"></script>
-  <script src="app.js?v=7"></script>
+  <script src="data.js?v=8"></script>
+  <script src="news.js?v=8"></script>
+  <script src="data-status.js?v=8"></script>
+  <script src="app.js?v=8"></script>
 </body>
 </html>
