@@ -1,5 +1,16 @@
 (() => {
-  const D = window.F1_DATA;
+  function mergeData(base, overlay) {
+    if (!overlay || typeof overlay !== "object") return base;
+    const out = {...base};
+    for (const [key,value] of Object.entries(overlay)) {
+      if (Array.isArray(value)) out[key] = value;
+      else if (value && typeof value === "object" && !Array.isArray(value)) {
+        out[key] = mergeData(base[key] || {}, value);
+      } else if (value !== undefined && value !== null) out[key] = value;
+    }
+    return out;
+  }
+  const D = mergeData(window.F1_DATA, window.F1_ONLINE_DATA);
   const $ = (s, root=document) => root.querySelector(s);
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
   const pad = n => String(n).padStart(2,"0");
@@ -193,64 +204,80 @@
     }];
   }
 
+  function localHistoryStories() {
+    const archive = window.F1_HISTORY;
+    if (!archive?.days) return D.history || [];
+    const now = new Date();
+    const key = `${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
+    return archive.days[key] || D.history || [];
+  }
+
+  function mediaCreditHtml(media) {
+    if (!media) return "";
+    const creator = media.creator ? `© ${media.creator}` : "";
+    const license = media.license || "";
+    const page = media.page || "#";
+    return `<a href="${page}" target="_blank" rel="noopener noreferrer">${creator}${creator && license ? " · " : ""}${license}</a>`;
+  }
+
+  function renderMedia() {
+    const media = window.F1_MEDIA || {};
+    if (media.hero?.url) {
+      $("#heroPhoto").src = media.hero.url;
+      $("#heroPhoto").alt = media.hero.alt || "";
+      $("#heroCredit").innerHTML = mediaCreditHtml(media.hero);
+    }
+    const circuit = media.circuit;
+    if (circuit?.url) {
+      const img = $("#circuitLayoutImage");
+      img.src = circuit.url;
+      img.hidden = false;
+      $(".track-art").classList.add("has-layout");
+    }
+  }
+
   function renderHistory() {
-    const items = todaysHistory();
-    if (state.historyIndex >= items.length) state.historyIndex = 0;
-    const h = items[state.historyIndex];
+    const stories = localHistoryStories();
+    if (!stories.length) return;
+    if (state.historyIndex >= stories.length) state.historyIndex = 0;
+    const h = stories[state.historyIndex];
     const now = new Date();
     $("#historyDay").textContent = pad(now.getDate());
     $("#historyMonth").textContent = now.toLocaleString(undefined,{month:"short"}).toUpperCase();
     $("#historyYear").textContent = h.year;
-    $("#historyCategory").textContent = h.category;
+    $("#historyCategory").textContent = h.category || "F1 HISTORY";
     $("#historyTitle").textContent = h.title;
-    $("#historyText").textContent = h.text;
-    $("#historyCount").textContent = `${pad(state.historyIndex+1)} / ${pad(items.length)}`;
-  }
+    $("#historyText").textContent = h.text || "";
+    $("#historyCount").textContent = `${pad(state.historyIndex+1)} / ${pad(stories.length)}`;
+    $("#historySourceLink").href = h.sourceUrl || "#";
+    $("#historySourceStatus").textContent = window.F1_HISTORY?.generatedAt
+      ? `F1DB archive · refreshed ${relativeTime(window.F1_HISTORY.generatedAt)}`
+      : "F1 history";
 
-
-  function relativeTime(iso) {
-    const date = new Date(iso);
-    const seconds = Math.max(0, Math.floor((Date.now() - date.getTime()) / 1000));
-    if (seconds < 60) return "JUST NOW";
-    const mins = Math.floor(seconds / 60);
-    if (mins < 60) return `${mins}M AGO`;
-    const hours = Math.floor(mins / 60);
-    if (hours < 24) return `${hours}H AGO`;
-    const days = Math.floor(hours / 24);
-    if (days < 7) return `${days}D AGO`;
-    return new Intl.DateTimeFormat(undefined,{month:"short",day:"numeric"}).format(date).toUpperCase();
-  }
-
-  function renderNews() {
-    const feed = window.F1_NEWS || {updatedAt:null,items:[]};
-    let items = feed.items || [];
-    if (state.newsSource !== "all") items = items.filter(item => item.source === state.newsSource);
-
-    $("#newsUpdated").textContent = feed.updatedAt
-      ? `UPDATED ${relativeTime(feed.updatedAt)}`
-      : "LOCAL NEWS SNAPSHOT";
-
-    $("#newsCount").textContent = `${items.length} STORIES`;
-
-    if (!items.length) {
-      $("#newsGrid").innerHTML = `
-        <article class="news-card news-loading">
-          <span>NEWS DESK</span>
-          <h3>No stories from this source in the current feed.</h3>
-        </article>`;
-      return;
+    const media = window.F1_MEDIA?.history?.[h.event];
+    const image = $("#historyImage");
+    if (media?.url) {
+      image.src = media.url;
+      image.alt = media.alt || h.title;
+      $("#historyCredit").innerHTML = mediaCreditHtml(media);
+    } else {
+      image.removeAttribute("src");
+      image.alt = "";
+      $("#historyCredit").textContent = "Licensed event image not found yet";
     }
+  }
 
-    $("#newsGrid").innerHTML = items.slice(0,12).map((item,index) => `
-      <a class="news-card ${index===0 ? "featured" : ""}" href="${item.url}" target="_blank" rel="noopener noreferrer">
-        <div class="news-source-row">
-          <span class="news-source">${item.source}</span>
-          <span class="news-time">${relativeTime(item.published)}</span>
-        </div>
-        <h3>${item.title}</h3>
-        <p>${item.summary || "Open the original publisher for the full story."}</p>
-        <span class="read-source">Read at ${item.source}</span>
-      </a>`).join("");
+  function renderDataSourceStatus() {
+    const online = window.F1_ONLINE_DATA?.meta;
+    const dot = $("#dataSourceDot");
+    if (online?.verified) {
+      dot.classList.add("online");
+      $("#dataSourceName").textContent = online.source || "F1DB";
+      $("#dataSourceNote").textContent = `Online data overlay · ${online.version || "latest release"}`;
+    } else {
+      $("#dataSourceName").textContent = "Verified fallback";
+      $("#dataSourceNote").textContent = "Last-known-good data remains active until online normalization validates.";
+    }
   }
 
   function populateCompare() {
@@ -325,6 +352,8 @@
     renderResults();
     renderCalendar();
     renderNews();
+    renderMedia();
+    renderDataSourceStatus();
     populateCompare();
     renderCompare();
     renderHistory();

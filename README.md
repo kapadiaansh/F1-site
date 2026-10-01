@@ -1,47 +1,64 @@
-# APEX Motorsport Data — V8
+# APEX Motorsport Data — V9
 
-V8 adds automated news collection and scheduled data-source checks.
+V9 converts the site from a mostly static snapshot into a fail-safe online-fed site.
 
-## Automatic news
-GitHub Actions runs `scripts/update_news.py` every 30 minutes.
+## Content sources
 
-Sources:
-- Motorsport.com Formula 1 RSS
-- Autosport Formula 1 RSS
+### Current / post-race statistics
+F1DB release artifacts (CC BY 4.0) are checked every 6 hours.
+`scripts/update_f1_data.py` normalizes a validated partial overlay into `online-data.js`.
 
-The generated `news.js` is committed to the repository. The public site therefore
-reads a local copy and does not depend on the RSS servers during page load.
+The website merges:
+`data.js` (last-known-good fallback) + `online-data.js` (verified online overlay).
 
-Only headline-level metadata is stored. Every story links to the original publisher.
+If normalization ever fails, the fallback remains untouched.
 
-## Automatic data checks
-GitHub Actions runs `scripts/check_f1db.py` every day.
+### Current news
+Autosport and Motorsport.com publisher RSS feeds are checked every 30 minutes.
+Only headline metadata, source, timestamp, short feed summary and original link are displayed.
 
-It checks the latest F1DB release and verifies the JSON release artifact.
+### On This Day
+Every day `scripts/update_history_media.py` downloads the latest F1DB CSV release and
+builds `history.js`, grouping historical Grands Prix by month/day.
 
-The update is intentionally fail-safe: a new external schema can never overwrite
-the verified `data.js` automatically until a full normalization pass validates
-the replacement. This keeps the public site working even if F1DB changes format.
+The browser chooses today's editorial date from this generated archive.
 
-## Enable the automations
-GitHub Actions must be enabled for the repository.
+### Photography
+The history/media updater searches Wikimedia Commons through the official MediaWiki API.
+Only media whose metadata identifies a reusable license such as public domain, CC0,
+CC BY or CC BY-SA is considered.
 
-After uploading V8:
-1. Open the repository on GitHub.
-2. Open the **Actions** tab.
-3. If prompted, enable workflows.
-4. Open **Update F1 news** and click **Run workflow** once.
-5. Open **Check F1 data release** and click **Run workflow** once.
+Every displayed Commons image includes creator/license attribution and links back to its
+Commons file page.
 
-After that:
-- news checks every 30 minutes
-- F1DB release checks daily
-- both workflows commit changes directly to `main`
+### Circuit layouts
+`scripts/update_circuit.py` searches the F1DB circuit SVG repository and downloads a
+matching Sepang SVG when available. F1DB circuit assets are CC BY 4.0.
 
-GitHub Pages will redeploy after those commits.
+## Update cadence
 
-## Important
-Scheduled GitHub Actions are not guaranteed to fire at the exact minute during
-heavy GitHub load, but they normally run close to the requested cadence.
+- News: every 30 minutes
+- F1DB race-data normalization: every 6 hours
+- Historical archive + licensed media: daily
+- GitHub Pages redeploys automatically after bot commits
 
-Footer marker: `BUILD V8 · AUTO NEWS + DATA CHECKS`
+## GitHub setup
+
+After replacing the old repository with V9:
+
+1. Open **Actions**.
+2. Enable workflows if GitHub asks.
+3. Run **Update F1 news** once.
+4. Run **Refresh F1 race data** once.
+5. Run **Refresh F1 history and media** once.
+6. Check the Actions logs.
+7. GitHub Pages will redeploy after the commits.
+
+## Core fail-safe rule
+
+Automated scripts never deliberately replace the verified fallback with incomplete data.
+When an online source is unavailable or its schema cannot be confidently normalized,
+the previous successful files remain active.
+
+Footer marker:
+`BUILD V9 · ONLINE DATA + LICENSED MEDIA`
