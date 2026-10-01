@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#080a0f">
   <meta name="description" content="Independent Formula racing statistics, race weekends and history.">
   <title>APEX — Motorsport Data</title>
-  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="styles.css?v=9.1">
 </head>
 <body>
   <div class="progress" id="progress"></div>
@@ -142,7 +142,7 @@
             </div>
           </article>
 
-          <div class="sessions reveal" id="sessionList"></div>
+          <div class="sessions reveal" id="sessionList"><article class="session-row next"><div class="session-short">FP1</div><div class="session-info"><small>10-02</small><strong>Practice 1</strong></div><div class="session-time"><strong>--:--</strong><span>NEXT</span></div></article><article class="session-row "><div class="session-short">FP2</div><div class="session-info"><small>10-02</small><strong>Practice 2</strong></div><div class="session-time"><strong>--:--</strong><span>UPCOMING</span></div></article><article class="session-row "><div class="session-short">FP3</div><div class="session-info"><small>10-03</small><strong>Practice 3</strong></div><div class="session-time"><strong>--:--</strong><span>UPCOMING</span></div></article><article class="session-row "><div class="session-short">Q</div><div class="session-info"><small>10-03</small><strong>Qualifying</strong></div><div class="session-time"><strong>--:--</strong><span>UPCOMING</span></div></article><article class="session-row "><div class="session-short">R</div><div class="session-info"><small>10-04</small><strong>Race</strong></div><div class="session-time"><strong>--:--</strong><span>UPCOMING</span></div></article></div>
         </div>
 
         <div class="weather reveal" id="weatherStrip"></div>
@@ -170,7 +170,7 @@
           <div class="standings-head">
             <span>POS</span><span>COMPETITOR</span><span>TEAM</span><span>PTS</span>
           </div>
-          <div id="standingsRows"></div>
+          <div id="standingsRows"><div class="standing-row"><span class="pos">01</span><div class="driver-cell"><i class="driver-color" style="--c:#27F4D2"></i><div class="driver-name"><strong>Kimi Antonelli</strong><small>#12 · ANT</small></div></div><span class="team-name">Mercedes</span><span class="pts">302<small>PTS</small></span></div><div class="standing-row"><span class="pos">02</span><div class="driver-cell"><i class="driver-color" style="--c:#27F4D2"></i><div class="driver-name"><strong>George Russell</strong><small>#63 · RUS</small></div></div><span class="team-name">Mercedes</span><span class="pts">236<small>PTS</small></span></div><div class="standing-row"><span class="pos">03</span><div class="driver-cell"><i class="driver-color" style="--c:#E80020"></i><div class="driver-name"><strong>Lewis Hamilton</strong><small>#44 · HAM</small></div></div><span class="team-name">Ferrari</span><span class="pts">199<small>PTS</small></span></div><div class="standing-row"><span class="pos">04</span><div class="driver-cell"><i class="driver-color" style="--c:#FF8000"></i><div class="driver-name"><strong>Lando Norris</strong><small>#1 · NOR</small></div></div><span class="team-name">McLaren</span><span class="pts">186<small>PTS</small></span></div><div class="standing-row"><span class="pos">05</span><div class="driver-cell"><i class="driver-color" style="--c:#E80020"></i><div class="driver-name"><strong>Charles Leclerc</strong><small>#16 · LEC</small></div></div><span class="team-name">Ferrari</span><span class="pts">179<small>PTS</small></span></div><div class="standing-row"><span class="pos">06</span><div class="driver-cell"><i class="driver-color" style="--c:#3671C6"></i><div class="driver-name"><strong>Max Verstappen</strong><small>#3 · VER</small></div></div><span class="team-name">Red Bull Racing</span><span class="pts">163<small>PTS</small></span></div><div class="standing-row"><span class="pos">07</span><div class="driver-cell"><i class="driver-color" style="--c:#FF8000"></i><div class="driver-name"><strong>Oscar Piastri</strong><small>#81 · PIA</small></div></div><span class="team-name">McLaren</span><span class="pts">120<small>PTS</small></span></div><div class="standing-row"><span class="pos">08</span><div class="driver-cell"><i class="driver-color" style="--c:#3671C6"></i><div class="driver-name"><strong>Isack Hadjar</strong><small>#6 · HAD</small></div></div><span class="team-name">Red Bull Racing</span><span class="pts">86<small>PTS</small></span></div><div class="standing-row"><span class="pos">09</span><div class="driver-cell"><i class="driver-color" style="--c:#6692FF"></i><div class="driver-name"><strong>Liam Lawson</strong><small>#30 · LAW</small></div></div><span class="team-name">Racing Bulls</span><span class="pts">59<small>PTS</small></span></div><div class="standing-row"><span class="pos">10</span><div class="driver-cell"><i class="driver-color" style="--c:#FF87BC"></i><div class="driver-name"><strong>Pierre Gasly</strong><small>#10 · GAS</small></div></div><span class="team-name">Alpine</span><span class="pts">41<small>PTS</small></span></div></div>
           <button class="show-more" id="showMore">Show all standings <span>↓</span></button>
         </div>
       </div>
@@ -184,11 +184,11 @@
             <span class="date-chip">26 SEP · BAKU</span>
           </div>
 
-          <div class="podium-grid" id="podium"></div>
+          <div class="podium-grid" id="podium"><article class="podium-card "><span class="place">P2</span><span class="num">#3</span><h3>Max Verstappen</h3><p>Red Bull Racing</p><strong class="gap">+0.196s</strong></article><article class="podium-card first"><span class="place">P1</span><span class="num">#63</span><h3>George Russell</h3><p>Mercedes</p><strong class="gap">1:38:02.143</strong></article><article class="podium-card "><span class="place">P3</span><span class="num">#6</span><h3>Isack Hadjar</h3><p>Red Bull Racing</p><strong class="gap">+10.704s</strong></article></div>
 
           <div class="result-table">
             <div class="result-table-head"><span>POS</span><span>DRIVER</span><span>TEAM</span><span>GAP</span><span>PTS</span></div>
-            <div id="resultRows"></div>
+            <div id="resultRows"><div class="result-row"><span class="rpos">1</span><span class="rdriver">George Russell</span><span class="rteam">Mercedes</span><span class="rgap">1:38:02.143</span><span class="rpts">25</span></div><div class="result-row"><span class="rpos">2</span><span class="rdriver">Max Verstappen</span><span class="rteam">Red Bull Racing</span><span class="rgap">+0.196s</span><span class="rpts">18</span></div><div class="result-row"><span class="rpos">3</span><span class="rdriver">Isack Hadjar</span><span class="rteam">Red Bull Racing</span><span class="rgap">+10.704s</span><span class="rpts">15</span></div><div class="result-row"><span class="rpos">4</span><span class="rdriver">Charles Leclerc</span><span class="rteam">Ferrari</span><span class="rgap">+14.136s</span><span class="rpts">12</span></div><div class="result-row"><span class="rpos">5</span><span class="rdriver">Kimi Antonelli</span><span class="rteam">Mercedes</span><span class="rgap">+14.512s</span><span class="rpts">10</span></div></div>
             <button class="show-more" id="toggleResults">Full top 10 <span>↓</span></button>
           </div>
         </div>
@@ -218,7 +218,7 @@
             <button data-race-filter="upcoming">Upcoming</button>
           </div>
         </div>
-        <div class="calendar-track reveal" id="calendarTrack"></div>
+        <div class="calendar-track reveal" id="calendarTrack"><article class="race-card "><div class="round"><span>ROUND 01</span><span class="">COMPLETE</span></div><div class="race-date">08<span>MAR</span></div><h3>Australian GP</h3><p>Australia</p><div class="winner">WINNER · <strong>George Russell</strong></div></article><article class="race-card "><div class="round"><span>ROUND 02</span><span class="">COMPLETE</span></div><div class="race-date">15<span>MAR</span></div><h3>Chinese GP</h3><p>China</p><div class="winner">WINNER · <strong>Kimi Antonelli</strong></div></article><article class="race-card "><div class="round"><span>ROUND 03</span><span class="">COMPLETE</span></div><div class="race-date">29<span>MAR</span></div><h3>Japanese GP</h3><p>Japan</p><div class="winner">WINNER · <strong>Kimi Antonelli</strong></div></article><article class="race-card "><div class="round"><span>ROUND 04</span><span class="">COMPLETE</span></div><div class="race-date">03<span>MAY</span></div><h3>Miami GP</h3><p>Miami</p><div class="winner">WINNER · <strong>Kimi Antonelli</strong></div></article><article class="race-card "><div class="round"><span>ROUND 05</span><span class="">COMPLETE</span></div><div class="race-date">24<span>MAY</span></div><h3>Canadian GP</h3><p>Canada</p><div class="winner">WINNER · <strong>Kimi Antonelli</strong></div></article><article class="race-card "><div class="round"><span>ROUND 06</span><span class="">COMPLETE</span></div><div class="race-date">07<span>JUN</span></div><h3>Monaco GP</h3><p>Monaco</p><div class="winner">WINNER · <strong>Kimi Antonelli</strong></div></article><article class="race-card "><div class="round"><span>ROUND 07</span><span class="">COMPLETE</span></div><div class="race-date">14<span>JUN</span></div><h3>Barcelona-Catalunya GP</h3><p>Barcelona-Catalunya</p><div class="winner">WINNER · <strong>Lewis Hamilton</strong></div></article><article class="race-card "><div class="round"><span>ROUND 08</span><span class="">COMPLETE</span></div><div class="race-date">28<span>JUN</span></div><h3>Austrian GP</h3><p>Austria</p><div class="winner">WINNER · <strong>George Russell</strong></div></article><article class="race-card "><div class="round"><span>ROUND 09</span><span class="">COMPLETE</span></div><div class="race-date">05<span>JUL</span></div><h3>British GP</h3><p>Great Britain</p><div class="winner">WINNER · <strong>Charles Leclerc</strong></div></article><article class="race-card "><div class="round"><span>ROUND 10</span><span class="">COMPLETE</span></div><div class="race-date">19<span>JUL</span></div><h3>Belgian GP</h3><p>Belgium</p><div class="winner">WINNER · <strong>Kimi Antonelli</strong></div></article><article class="race-card "><div class="round"><span>ROUND 11</span><span class="">COMPLETE</span></div><div class="race-date">26<span>JUL</span></div><h3>Hungarian GP</h3><p>Hungary</p><div class="winner">WINNER · <strong>Lando Norris</strong></div></article><article class="race-card "><div class="round"><span>ROUND 12</span><span class="">COMPLETE</span></div><div class="race-date">23<span>AUG</span></div><h3>Dutch GP</h3><p>Netherlands</p><div class="winner">WINNER · <strong>Lando Norris</strong></div></article><article class="race-card "><div class="round"><span>ROUND 13</span><span class="">COMPLETE</span></div><div class="race-date">06<span>SEP</span></div><h3>Italian GP</h3><p>Italy</p><div class="winner">WINNER · <strong>Kimi Antonelli</strong></div></article><article class="race-card "><div class="round"><span>ROUND 14</span><span class="">COMPLETE</span></div><div class="race-date">13<span>SEP</span></div><h3>Spanish GP</h3><p>Spain</p><div class="winner">WINNER · <strong>Kimi Antonelli</strong></div></article><article class="race-card "><div class="round"><span>ROUND 15</span><span class="">COMPLETE</span></div><div class="race-date">26<span>SEP</span></div><h3>Azerbaijan GP</h3><p>Azerbaijan</p><div class="winner">WINNER · <strong>George Russell</strong></div></article><article class="race-card next"><div class="round"><span>ROUND 16</span><span class="status">NEXT</span></div><div class="race-date">04<span>OCT</span></div><h3>Bahrain GP in Malaysia</h3><p>Malaysia</p><div class="winner">RACE PENDING</div></article><article class="race-card "><div class="round"><span>ROUND 17</span><span class="">UPCOMING</span></div><div class="race-date">11<span>OCT</span></div><h3>Singapore GP</h3><p>Singapore</p><div class="winner">RACE PENDING</div></article><article class="race-card "><div class="round"><span>ROUND 18</span><span class="">UPCOMING</span></div><div class="race-date">25<span>OCT</span></div><h3>United States GP</h3><p>United States</p><div class="winner">RACE PENDING</div></article><article class="race-card "><div class="round"><span>ROUND 19</span><span class="">UPCOMING</span></div><div class="race-date">01<span>NOV</span></div><h3>Mexico City GP</h3><p>Mexico</p><div class="winner">RACE PENDING</div></article><article class="race-card "><div class="round"><span>ROUND 20</span><span class="">UPCOMING</span></div><div class="race-date">08<span>NOV</span></div><h3>São Paulo GP</h3><p>Brazil</p><div class="winner">RACE PENDING</div></article><article class="race-card "><div class="round"><span>ROUND 21</span><span class="">UPCOMING</span></div><div class="race-date">21<span>NOV</span></div><h3>Las Vegas GP</h3><p>Las Vegas</p><div class="winner">RACE PENDING</div></article><article class="race-card "><div class="round"><span>ROUND 22</span><span class="">UPCOMING</span></div><div class="race-date">29<span>NOV</span></div><h3>Qatar GP</h3><p>Qatar</p><div class="winner">RACE PENDING</div></article><article class="race-card "><div class="round"><span>ROUND 23</span><span class="">UPCOMING</span></div><div class="race-date">06<span>DEC</span></div><h3>Abu Dhabi GP</h3><p>Abu Dhabi</p><div class="winner">RACE PENDING</div></article></div>
       </div>
     </section>
 
@@ -245,11 +245,7 @@
           <span>Headlines link directly to the original publisher.</span>
         </div>
 
-        <div class="news-grid reveal" id="newsGrid">
-          <article class="news-card news-loading">
-            <span>NEWS</span><h3>Loading latest Formula 1 headlines…</h3>
-          </article>
-        </div>
+        <div class="news-grid reveal" id="newsGrid"><a class="news-card featured" href="https://www.autosport.com/f1/news/as-mercedes-looks-to-deal-f1-2026-knockout-blow-will-its-driver-fight-reignite/10860324/" target="_blank" rel="noopener noreferrer"><div class="news-source-row"><span class="news-source">Autosport</span><span class="news-time">RECENT</span></div><h3>As Mercedes looks to deal F1 2026 knockout blow, will its driver fight reignite?</h3><p>Mercedes arrives in Malaysia with a major upgrade package as the championship fight between Kimi Antonelli and George Russell tightens.</p><span class="read-source">Read at Autosport</span></a><a class="news-card " href="https://www.motorsport.com/f1/news/george-russell-details-f1-drivers-langkawi-boys-trip-ahead-of-bahrain-gp-in-malaysia/10860341/" target="_blank" rel="noopener noreferrer"><div class="news-source-row"><span class="news-source">Motorsport.com</span><span class="news-time">RECENT</span></div><h3>George Russell details F1 drivers&#x27; Langkawi boys&#x27; trip ahead of Bahrain GP in Malaysia</h3><p>George Russell discusses the drivers&#x27; pre-race trip to Langkawi ahead of Formula 1&#x27;s return to Malaysia.</p><span class="read-source">Read at Motorsport.com</span></a><a class="news-card " href="https://www.motorsport.com/f1/news/guenther-steiner-jokes-christian-horner-ferrari-talk-is-good-book-publicity/10860349/" target="_blank" rel="noopener noreferrer"><div class="news-source-row"><span class="news-source">Motorsport.com</span><span class="news-time">RECENT</span></div><h3>Guenther Steiner jokes Christian Horner Ferrari talk is good book publicity</h3><p>Guenther Steiner comments on speculation surrounding Christian Horner and Ferrari.</p><span class="read-source">Read at Motorsport.com</span></a></div>
 
         <div class="news-footer reveal">
           <p>
@@ -274,7 +270,7 @@
           <label>DRIVER B<select id="compareB"></select></label>
         </div>
 
-        <div class="compare-board reveal" id="compareBoard"></div>
+        <div class="compare-board reveal" id="compareBoard"><article class="compare-driver" style="--c:#27F4D2"><span>#12</span><div class="big-code">ANT</div><small>Mercedes</small><h3>Kimi Antonelli</h3></article><div class="compare-metrics"><div class="metric-row"><b>P1</b><span>Championship</span><b>P2</b></div><div class="metric-row"><b>302</b><span>Points</span><b>236</b></div></div><article class="compare-driver right" style="--c:#27F4D2"><span>#63</span><div class="big-code">RUS</div><small>Mercedes</small><h3>George Russell</h3></article></div>
       </div>
     </section>
 
@@ -359,17 +355,17 @@
       <p>Independent motorsport statistics & history project.</p>
       <div class="footer-right">
         <span>DATA UPDATED 30 SEP 2026</span>
-        <span>BUILD V9 · ONLINE DATA + LICENSED MEDIA</span>
+        <span>BUILD V9.1 · FAIL-OPEN FIX</span>
       </div>
     </div>
   </footer>
 
-  <script src="data.js?v=9"></script>
-  <script src="online-data.js?v=9"></script>
-  <script src="news.js?v=9"></script>
-  <script src="history.js?v=9"></script>
-  <script src="media.js?v=9"></script>
-  <script src="data-status.js?v=9"></script>
-  <script src="app.js?v=9"></script>
+  <script src="data.js?v=9.1"></script>
+  <script src="online-data.js?v=9.1"></script>
+  <script src="news.js?v=9.1"></script>
+  <script src="history.js?v=9.1"></script>
+  <script src="media.js?v=9.1"></script>
+  <script src="data-status.js?v=9.1"></script>
+  <script src="app.js?v=9.1"></script>
 </body>
 </html>

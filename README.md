@@ -62,3 +62,11 @@ the previous successful files remain active.
 
 Footer marker:
 `BUILD V9 · ONLINE DATA + LICENSED MEDIA`
+
+
+## V9.1 hotfix
+- Restores missing `renderNews()` and `relativeTime()` helpers.
+- All reveal content is visible by default.
+- Every major panel has static HTML fallback content.
+- Initialization is isolated per feature with `safeRun()`, so one widget cannot blank the whole page.
+- Footer marker: `BUILD V9.1 · FAIL-OPEN FIX`.

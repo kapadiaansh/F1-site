@@ -191,6 +191,58 @@
       <article class="compare-driver right" style="--c:${b.color}"><span>#${b.number}</span><div class="big-code">${b.code}</div><small>${b.team}</small><h3>${b.name}</h3></article>`;
   }
 
+  function escapeHtml(value="") {
+    return String(value)
+      .replaceAll("&","&amp;")
+      .replaceAll("<","&lt;")
+      .replaceAll(">","&gt;")
+      .replaceAll('"',"&quot;")
+      .replaceAll("'","&#039;");
+  }
+
+  function relativeTime(iso) {
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return "RECENTLY";
+    const seconds = Math.max(0, Math.floor((Date.now() - date.getTime()) / 1000));
+    if (seconds < 60) return "JUST NOW";
+    const mins = Math.floor(seconds / 60);
+    if (mins < 60) return `${mins}M AGO`;
+    const hours = Math.floor(mins / 60);
+    if (hours < 24) return `${hours}H AGO`;
+    const days = Math.floor(hours / 24);
+    if (days < 7) return `${days}D AGO`;
+    return new Intl.DateTimeFormat(undefined,{month:"short",day:"numeric"}).format(date).toUpperCase();
+  }
+
+  function renderNews() {
+    const feed = window.F1_NEWS || {updatedAt:null,items:[]};
+    let items = Array.isArray(feed.items) ? [...feed.items] : [];
+    if (state.newsSource !== "all") items = items.filter(item => item.source === state.newsSource);
+
+    const updated = $("#newsUpdated");
+    const count = $("#newsCount");
+    const grid = $("#newsGrid");
+    if (!grid) return;
+    if (updated) updated.textContent = feed.updatedAt ? `UPDATED ${relativeTime(feed.updatedAt)}` : "LOCAL NEWS SNAPSHOT";
+    if (count) count.textContent = `${items.length} STORIES`;
+
+    if (!items.length) {
+      grid.innerHTML = `<article class="news-card"><div class="news-source-row"><span class="news-source">NEWS DESK</span></div><h3>No stories in this filter yet.</h3><p>The automated feed will populate this section on its next successful update.</p></article>`;
+      return;
+    }
+
+    grid.innerHTML = items.slice(0,12).map((item,index) => `
+      <a class="news-card ${index===0 ? "featured" : ""}" href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer">
+        <div class="news-source-row">
+          <span class="news-source">${escapeHtml(item.source)}</span>
+          <span class="news-time">${relativeTime(item.published)}</span>
+        </div>
+        <h3>${escapeHtml(item.title)}</h3>
+        <p>${escapeHtml(item.summary || "Open the original publisher for the full story.")}</p>
+        <span class="read-source">Read at ${escapeHtml(item.source)}</span>
+      </a>`).join("");
+  }
+
   function todaysHistory() {
     const now = new Date();
     const key = `${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
@@ -318,8 +370,8 @@
 
     $("#compareA").addEventListener("change",renderCompare);
     $("#compareB").addEventListener("change",renderCompare);
-    $("#historyPrev").addEventListener("click",()=>{{const items=todaysHistory();state.historyIndex=(state.historyIndex-1+items.length)%items.length;renderHistory()}});
-    $("#historyNext").addEventListener("click",()=>{{const items=todaysHistory();state.historyIndex=(state.historyIndex+1)%items.length;renderHistory()}});
+    $$("#historyPrev")[0]?.addEventListener("click",()=>{const items=localHistoryStories();if(!items.length)return;state.historyIndex=(state.historyIndex-1+items.length)%items.length;renderHistory()});
+    $$("#historyNext")[0]?.addEventListener("click",()=>{const items=localHistoryStories();if(!items.length)return;state.historyIndex=(state.historyIndex+1)%items.length;renderHistory()});
 
     const menuBtn=$("#menuBtn"), nav=$("#nav");
     menuBtn.addEventListener("click",()=>{const open=nav.classList.toggle("open");menuBtn.setAttribute("aria-expanded",String(open))});
@@ -338,31 +390,43 @@
       $$("#nav a").forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+current));
     },{passive:true});
 
-    const observer=new IntersectionObserver(entries=>{
-      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}})
-    },{threshold:.12});
-    $$(".reveal").forEach(el=>observer.observe(el));
+    if ("IntersectionObserver" in window) {
+      const observer=new IntersectionObserver(entries=>{
+        entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target)}})
+      },{threshold:.12});
+      $$(".reveal").forEach(el=>observer.observe(el));
+    } else {
+      $$(".reveal").forEach(el=>el.classList.add("visible"));
+    }
+  }
+
+  function safeRun(name, fn) {
+    try { fn(); }
+    catch (error) { console.error(`[APEX] ${name} failed`, error); }
   }
 
   function init() {
-    renderNextSession();
-    renderSessions();
-    renderWeather();
-    renderStandings();
-    renderResults();
-    renderCalendar();
-    renderNews();
-    renderMedia();
-    renderDataSourceStatus();
-    populateCompare();
-    renderCompare();
-    renderHistory();
-    setupEvents();
-    setupScroll();
-    updateCountdown(); updateClock();
-    setInterval(updateCountdown,1000);
-    setInterval(updateClock,1000);
-  }
+    // Fail open: page content is visible even if one enhancement fails.
+    $$(".reveal").forEach(el=>el.classList.add("visible"));
 
+    safeRun("next session", renderNextSession);
+    safeRun("sessions", renderSessions);
+    safeRun("weather", renderWeather);
+    safeRun("standings", renderStandings);
+    safeRun("results", renderResults);
+    safeRun("calendar", renderCalendar);
+    safeRun("news", renderNews);
+    safeRun("media", renderMedia);
+    safeRun("data status", renderDataSourceStatus);
+    safeRun("compare options", populateCompare);
+    safeRun("comparison", renderCompare);
+    safeRun("history", renderHistory);
+    safeRun("events", setupEvents);
+    safeRun("scroll", setupScroll);
+    safeRun("countdown", updateCountdown);
+    safeRun("clock", updateClock);
+    setInterval(()=>safeRun("countdown",updateCountdown),1000);
+    setInterval(()=>safeRun("clock",updateClock),1000);
+  }
   document.addEventListener("DOMContentLoaded",init);
 })();
