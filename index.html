@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#090b0f" />
+  <meta
+    name="description"
+    content="A modern independent motorsport statistics, schedule and history dashboard."
+  />
+  <title>APEX // Motorsport Data</title>
+
+  <link rel="preconnect" href="https://api.openf1.org" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="speed-line speed-line-one" aria-hidden="true"></div>
+  <div class="speed-line speed-line-two" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="APEX home">
+      <span class="brand-mark">A</span>
+      <span class="brand-copy">
+        <strong>APEX</strong>
+        <small>MOTORSPORT DATA</small>
+      </span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#race-weekend">Race Weekend</a>
+      <a href="#standings">Standings</a>
+      <a href="#latest">Latest Result</a>
+      <a href="#history">On This Day</a>
+    </nav>
+
+    <div class="header-actions">
+      <span class="data-pill">
+        <span class="status-dot"></span>
+        OPENF1 DATA
+      </span>
+      <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+    <a href="#race-weekend">Race Weekend</a>
+    <a href="#standings">Standings</a>
+    <a href="#latest">Latest Result</a>
+    <a href="#history">On This Day</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="eyebrow">
+        <span>2026 SEASON</span>
+        <span class="slash">/</span>
+        <span>DATA • HISTORY • RACE WEEKENDS</span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">THE NEXT LIGHTS OUT</p>
+          <h1 id="nextRaceName">Loading next race…</h1>
+
+          <div class="race-meta">
+            <span id="nextRaceLocation">Fetching calendar</span>
+            <span class="meta-separator"></span>
+            <span id="nextRaceDates">—</span>
+          </div>
+
+          <div class="countdown" id="countdown" aria-label="Countdown to next session">
+            <div>
+              <strong id="days">--</strong>
+              <span>DAYS</span>
+            </div>
+            <i>:</i>
+            <div>
+              <strong id="hours">--</strong>
+              <span>HRS</span>
+            </div>
+            <i>:</i>
+            <div>
+              <strong id="minutes">--</strong>
+              <span>MIN</span>
+            </div>
+            <i>:</i>
+            <div>
+              <strong id="seconds">--</strong>
+              <span>SEC</span>
+            </div>
+          </div>
+
+          <div class="hero-cta-row">
+            <a class="button button-primary" href="#race-weekend">View race weekend</a>
+            <a class="button button-ghost" href="#standings">Championship</a>
+          </div>
+        </div>
+
+        <aside class="telemetry-card">
+          <div class="telemetry-top">
+            <span>NEXT SESSION</span>
+            <span class="live-chip" id="sessionState">UPCOMING</span>
+          </div>
+
+          <div class="session-feature">
+            <span class="session-number" id="nextSessionCode">R</span>
+            <div>
+              <small id="nextSessionDay">—</small>
+              <h2 id="nextSessionName">Loading…</h2>
+              <p id="nextSessionTime">—</p>
+            </div>
+          </div>
+
+          <div class="telemetry-bars" aria-hidden="true">
+            <span style="--bar: 91%"></span>
+            <span style="--bar: 74%"></span>
+            <span style="--bar: 83%"></span>
+            <span style="--bar: 59%"></span>
+            <span style="--bar: 96%"></span>
+            <span style="--bar: 68%"></span>
+            <span style="--bar: 78%"></span>
+            <span style="--bar: 49%"></span>
+            <span style="--bar: 87%"></span>
+          </div>
+
+          <div class="telemetry-footer">
+            <span>LOCAL TIME</span>
+            <strong id="localClock">--:--:--</strong>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ticker" aria-label="Site highlights">
+      <div class="ticker-track">
+        <span>RACE CALENDAR</span><b>●</b>
+        <span>DRIVER STANDINGS</span><b>●</b>
+        <span>CONSTRUCTOR STANDINGS</span><b>●</b>
+        <span>HISTORICAL MOMENTS</span><b>●</b>
+        <span>SESSION RESULTS</span><b>●</b>
+        <span>RACE CALENDAR</span><b>●</b>
+        <span>DRIVER STANDINGS</span><b>●</b>
+        <span>CONSTRUCTOR STANDINGS</span><b>●</b>
+        <span>HISTORICAL MOMENTS</span><b>●</b>
+        <span>SESSION RESULTS</span><b>●</b>
+      </div>
+    </section>
+
+    <section class="section shell" id="race-weekend">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">RACE WEEKEND</p>
+          <h2>Next on track</h2>
+        </div>
+        <p class="section-intro">
+          Session times automatically update from the current season calendar.
+        </p>
+      </div>
+
+      <div class="weekend-layout">
+        <article class="circuit-card">
+          <div class="corner-tag">NEXT GP</div>
+          <div class="circuit-visual">
+            <div class="circuit-ring"></div>
+            <div class="circuit-ring circuit-ring-two"></div>
+            <span class="circuit-monogram" id="circuitMonogram">GP</span>
+          </div>
+          <div class="circuit-copy">
+            <small id="circuitCountry">—</small>
+            <h3 id="circuitName">Loading circuit…</h3>
+            <p id="circuitType">Grand Prix weekend</p>
+          </div>
+        </article>
+
+        <div class="session-list" id="sessionList">
+          <div class="skeleton-row"></div>
+          <div class="skeleton-row"></div>
+          <div class="skeleton-row"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="standings">
+      <div class="section-heading">
+        <div>
+          <p class="kicker">CHAMPIONSHIP</p>
+          <h2>Standings</h2>
+        </div>
+
+        <div class="segmented" role="tablist" aria-label="Standings type">
+          <button class="segment active" data-tab="drivers" role="tab" aria-selected="true">Drivers</button>
+          <button class="segment" data-tab="teams" role="tab" aria-selected="false">Constructors</button>
+        </div>
+      </div>
+
+      <div class="standings-card">
+        <div class="standings-head">
+          <span>POS</span>
+          <span>COMPETITOR</span>
+          <span>PTS</span>
+        </div>
+        <div id="standingsBody">
+          <div class="skeleton-table"></div>
+          <div class="skeleton-table"></div>
+          <div class="skeleton-table"></div>
+          <div class="skeleton-table"></div>
+          <div class="skeleton-table"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell latest-grid" id="latest">
+      <div>
+        <div class="section-heading compact-heading">
+          <div>
+            <p class="kicker">LAST CHEQUERED FLAG</p>
+            <h2>Latest result</h2>
+          </div>
+        </div>
+
+        <article class="result-card">
+          <div class="result-header">
+            <div>
+              <small id="latestRaceDate">—</small>
+              <h3 id="latestRaceName">Loading latest race…</h3>
+            </div>
+            <span class="result-label">RACE RESULT</span>
+          </div>
+
+          <div class="podium" id="podium">
+            <div class="podium-loading">Fetching podium…</div>
+          </div>
+
+          <div class="result-footer">
+            <span>Official session data after publication</span>
+            <span>Powered by OpenF1</span>
+          </div>
+        </article>
+      </div>
+
+      <aside class="live-panel">
+        <div class="panel-heading">
+          <span class="status-dot"></span>
+          <span>SESSION CENTER</span>
+        </div>
+        <h3 id="centerTitle">No session live</h3>
+        <p id="centerCopy">
+          During an active race weekend, this panel will identify the current session.
+        </p>
+
+        <div class="mini-stat-grid">
+          <div>
+            <small>SEASON</small>
+            <strong id="seasonStat">2026</strong>
+          </div>
+          <div>
+            <small>ROUND</small>
+            <strong id="roundStat">—</strong>
+          </div>
+          <div>
+            <small>NEXT</small>
+            <strong id="nextStat">—</strong>
+          </div>
+          <div>
+            <small>DATA</small>
+            <strong>API</strong>
+          </div>
+        </div>
+
+        <div class="premium-note">
+          <strong>Live timing ready</strong>
+          <p>
+            Architecture is prepared for real-time intervals, weather and race-control data.
+            Free mode currently uses schedule and completed-session data.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="history-section" id="history">
+      <div class="shell history-inner">
+        <div class="history-date">
+          <p class="kicker">ON THIS DAY</p>
+          <strong id="historyDay">30</strong>
+          <span id="historyMonth">SEP</span>
+        </div>
+
+        <article class="history-story">
+          <div class="history-year" id="historyYear">2007</div>
+          <div>
+            <p class="history-category" id="historyCategory">RACE HISTORY</p>
+            <h2 id="historyTitle">A famous Sunday at Fuji</h2>
+            <p id="historyDescription">
+              Loading a curated moment from motorsport history…
+            </p>
+          </div>
+        </article>
+
+        <div class="history-controls">
+          <button id="prevHistory" aria-label="Previous historical story">←</button>
+          <span id="historyIndex">01 / 01</span>
+          <button id="nextHistory" aria-label="Next historical story">→</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="feature-strip">
+        <article>
+          <span>01</span>
+          <h3>Statistics</h3>
+          <p>Driver, team and race data with a clean dashboard-first presentation.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>History</h3>
+          <p>Curated daily motorsport moments designed to become a searchable archive.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Live-ready</h3>
+          <p>The interface can later add timing, weather, flags, intervals and pit data.</p>
+        </article>
+      </div>
+    </section>
+
+    <!--
+      MONETIZATION SLOT:
+      Once the site has substantial original content and is approved by an ad network,
+      an ad unit can be inserted here without redesigning the page.
+    -->
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <span class="brand-mark">A</span>
+          <span class="brand-copy">
+            <strong>APEX</strong>
+            <small>MOTORSPORT DATA</small>
+          </span>
+        </a>
+        <p>Independent motorsport statistics and history project.</p>
+      </div>
+
+      <div class="footer-meta">
+        <p>Data: OpenF1</p>
+        <p>Not affiliated with Formula One Management, Formula One Licensing B.V. or the FIA.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
