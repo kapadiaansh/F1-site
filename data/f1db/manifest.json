@@ -1,0 +1,9 @@
+{
+  "ready": false,
+  "source": "F1DB",
+  "license": "CC BY 4.0",
+  "sourceUrl": "https://github.com/f1db/f1db",
+  "version": null,
+  "generatedAt": null,
+  "note": "Run scripts/sync_f1db.py or the included GitHub Action to generate normalized historical files."
+}

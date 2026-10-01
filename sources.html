@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0f">
+  <meta name="description" content="Data sources, attribution and methodology for APEX Motorsport Data.">
+  <title>Sources & Attribution // APEX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark">A</span><span class="brand-copy"><strong>APEX</strong><small>MOTORSPORT DATA</small></span></a>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="drivers.html">Drivers</a>
+      <a href="archive.html">Archive</a>
+      <a href="compare.html">Compare</a>
+      <a href="sources.html" class="active-link">Sources</a>
+    </nav>
+    <div class="header-actions"><span class="data-pill"><span class="status-dot"></span>TRANSPARENT DATA</span></div>
+  </header>
+
+  <main class="page-main">
+    <section class="shell page-hero compact-page-hero">
+      <p class="kicker">METHODOLOGY</p>
+      <h1>SOURCES</h1>
+      <p class="page-lead">Where our data comes from, what each source is used for, and how we keep the site independent.</p>
+    </section>
+
+    <section class="shell page-section no-top">
+      <div class="source-grid">
+        <article class="source-card">
+          <span class="source-index">01</span>
+          <p class="kicker">CURRENT / SESSION DATA</p>
+          <h2>OpenF1</h2>
+          <p>Used as an optional enhancement for modern session-rich data. The public site now carries its own local current-season snapshot so pages do not fail when current OpenF1 access requires authentication.</p>
+          <small>Historical detailed session data is available from 2023 onward; real-time access may require a paid plan.</small>
+        </article>
+
+        <article class="source-card">
+          <span class="source-index">02</span>
+          <p class="kicker">HISTORICAL DATABASE</p>
+          <h2>F1DB</h2>
+          <p>Primary historical layer for seasons, drivers, constructors, circuits, standings and race results from 1950 onward.</p>
+          <small>F1DB data is licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).</small>
+        </article>
+
+        <article class="source-card">
+          <span class="source-index">03</span>
+          <p class="kicker">EDITORIAL HISTORY</p>
+          <h2>APEX archive</h2>
+          <p>“On This Day” summaries and future editorial pages are written specifically for this site rather than copied from third-party articles.</p>
+          <small>StatsF1 and other established databases may be used manually to cross-check factual details.</small>
+        </article>
+
+        <article class="source-card">
+          <span class="source-index">04</span>
+          <p class="kicker">REFERENCE ONLY</p>
+          <h2>StatsF1</h2>
+          <p>Useful as an independent verification reference and a benchmark for the depth of historical statistics.</p>
+          <small>We do not use StatsF1 as a scraped production API and do not copy its editorial text.</small>
+        </article>
+      </div>
+
+      <div class="attribution-block">
+        <p class="kicker">ATTRIBUTION</p>
+        <h2>Historical data attribution</h2>
+        <p>
+          Historical Formula racing data used in our normalized archive is derived from
+          <strong>F1DB</strong> by Marcel Overdijk and contributors, licensed under
+          <strong>CC BY 4.0</strong>.
+        </p>
+        <p>
+          Current/session-oriented data is provided by <strong>OpenF1</strong>, an unofficial project.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div><p>Independent motorsport statistics and history project.</p></div>
+      <div class="footer-meta"><p>Not affiliated with Formula One Management, Formula One Licensing B.V. or the FIA.</p></div>
+    </div>
+  </footer>
+  <script src="common.js"></script>
+</body>
+</html>

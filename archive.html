@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b0f">
+  <meta name="description" content="Explore Formula racing history from 1950 to the present by season.">
+  <title>Historical Archive // APEX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">A</span>
+      <span class="brand-copy"><strong>APEX</strong><small>MOTORSPORT DATA</small></span>
+    </a>
+    <nav class="desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="drivers.html">Drivers</a>
+      <a href="archive.html" class="active-link">Archive</a>
+      <a href="compare.html">Compare</a>
+      <a href="sources.html">Sources</a>
+    </nav>
+    <div class="header-actions">
+      <span class="data-pill"><span class="status-dot"></span>1950 → TODAY</span>
+      <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="drivers.html">Drivers</a>
+    <a href="archive.html">Archive</a>
+    <a href="compare.html">Compare</a>
+    <a href="sources.html">Sources</a>
+  </nav>
+
+  <main class="page-main">
+    <section class="shell archive-hero">
+      <div>
+        <p class="kicker">THE COMPLETE TIMELINE</p>
+        <h1>1950<br><span>→ TODAY</span></h1>
+      </div>
+      <div class="archive-intro">
+        <p>
+          Browse championship seasons across eras. The historical layer is designed around
+          a locally cached F1DB snapshot so every page can remain fast on GitHub Pages.
+        </p>
+        <div class="archive-status" id="archiveStatus">
+          <span class="status-dot muted-dot"></span>
+          <strong>Checking historical database…</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell archive-controls">
+      <div class="decade-tabs" id="decadeTabs">
+        <button class="active" data-decade="all">All</button>
+        <button data-decade="1950">1950s</button>
+        <button data-decade="1960">1960s</button>
+        <button data-decade="1970">1970s</button>
+        <button data-decade="1980">1980s</button>
+        <button data-decade="1990">1990s</button>
+        <button data-decade="2000">2000s</button>
+        <button data-decade="2010">2010s</button>
+        <button data-decade="2020">2020s</button>
+      </div>
+    </section>
+
+    <section class="shell page-section no-top">
+      <div class="season-archive-grid" id="seasonArchive">
+        <div class="page-loader">Loading seasons…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div>
+        <a class="brand footer-brand" href="index.html">
+          <span class="brand-mark">A</span>
+          <span class="brand-copy"><strong>APEX</strong><small>MOTORSPORT DATA</small></span>
+        </a>
+        <p>Historical data layer: F1DB, licensed CC BY 4.0.</p>
+      </div>
+      <div class="footer-meta">
+        <p><a href="sources.html">Sources & attribution</a></p>
+        <p>Independent project. Not affiliated with Formula One Management, Formula One Licensing B.V. or the FIA.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="common.js"></script>
+  <script src="archive-data.js"></script>
+  <script src="archive.js"></script>
+</body>
+</html>

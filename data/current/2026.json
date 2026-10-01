@@ -1,0 +1,829 @@
+{
+  "season": 2026,
+  "updatedAt": "2026-09-30",
+  "sourceLabel": "Official F1 results/standings snapshot",
+  "drivers": [
+    {
+      "position": 1,
+      "driverNumber": 12,
+      "name": "Kimi Antonelli",
+      "code": "ANT",
+      "nationality": "ITA",
+      "team": "Mercedes",
+      "points": 302,
+      "teamColor": "27F4D2",
+      "firstName": "Kimi",
+      "lastName": "Antonelli"
+    },
+    {
+      "position": 2,
+      "driverNumber": 63,
+      "name": "George Russell",
+      "code": "RUS",
+      "nationality": "GBR",
+      "team": "Mercedes",
+      "points": 236,
+      "teamColor": "27F4D2",
+      "firstName": "George",
+      "lastName": "Russell"
+    },
+    {
+      "position": 3,
+      "driverNumber": 44,
+      "name": "Lewis Hamilton",
+      "code": "HAM",
+      "nationality": "GBR",
+      "team": "Ferrari",
+      "points": 199,
+      "teamColor": "E80020",
+      "firstName": "Lewis",
+      "lastName": "Hamilton"
+    },
+    {
+      "position": 4,
+      "driverNumber": 1,
+      "name": "Lando Norris",
+      "code": "NOR",
+      "nationality": "GBR",
+      "team": "McLaren",
+      "points": 186,
+      "teamColor": "FF8000",
+      "firstName": "Lando",
+      "lastName": "Norris"
+    },
+    {
+      "position": 5,
+      "driverNumber": 16,
+      "name": "Charles Leclerc",
+      "code": "LEC",
+      "nationality": "MON",
+      "team": "Ferrari",
+      "points": 179,
+      "teamColor": "E80020",
+      "firstName": "Charles",
+      "lastName": "Leclerc"
+    },
+    {
+      "position": 6,
+      "driverNumber": 3,
+      "name": "Max Verstappen",
+      "code": "VER",
+      "nationality": "NED",
+      "team": "Red Bull Racing",
+      "points": 163,
+      "teamColor": "3671C6",
+      "firstName": "Max",
+      "lastName": "Verstappen"
+    },
+    {
+      "position": 7,
+      "driverNumber": 81,
+      "name": "Oscar Piastri",
+      "code": "PIA",
+      "nationality": "AUS",
+      "team": "McLaren",
+      "points": 120,
+      "teamColor": "FF8000",
+      "firstName": "Oscar",
+      "lastName": "Piastri"
+    },
+    {
+      "position": 8,
+      "driverNumber": 6,
+      "name": "Isack Hadjar",
+      "code": "HAD",
+      "nationality": "FRA",
+      "team": "Red Bull Racing",
+      "points": 86,
+      "teamColor": "3671C6",
+      "firstName": "Isack",
+      "lastName": "Hadjar"
+    },
+    {
+      "position": 9,
+      "driverNumber": 30,
+      "name": "Liam Lawson",
+      "code": "LAW",
+      "nationality": "NZL",
+      "team": "Racing Bulls",
+      "points": 59,
+      "teamColor": "6692FF",
+      "firstName": "Liam",
+      "lastName": "Lawson"
+    },
+    {
+      "position": 10,
+      "driverNumber": 10,
+      "name": "Pierre Gasly",
+      "code": "GAS",
+      "nationality": "FRA",
+      "team": "Alpine",
+      "points": 41,
+      "teamColor": "FF87BC",
+      "firstName": "Pierre",
+      "lastName": "Gasly"
+    },
+    {
+      "position": 11,
+      "driverNumber": 41,
+      "name": "Arvid Lindblad",
+      "code": "LIN",
+      "nationality": "GBR",
+      "team": "Racing Bulls",
+      "points": 37,
+      "teamColor": "6692FF",
+      "firstName": "Arvid",
+      "lastName": "Lindblad"
+    },
+    {
+      "position": 12,
+      "driverNumber": 43,
+      "name": "Franco Colapinto",
+      "code": "COL",
+      "nationality": "ARG",
+      "team": "Alpine",
+      "points": 27,
+      "teamColor": "FF87BC",
+      "firstName": "Franco",
+      "lastName": "Colapinto"
+    },
+    {
+      "position": 13,
+      "driverNumber": 87,
+      "name": "Oliver Bearman",
+      "code": "BEA",
+      "nationality": "GBR",
+      "team": "Haas F1 Team",
+      "points": 20,
+      "teamColor": "B6BABD",
+      "firstName": "Oliver",
+      "lastName": "Bearman"
+    },
+    {
+      "position": 14,
+      "driverNumber": 5,
+      "name": "Gabriel Bortoleto",
+      "code": "BOR",
+      "nationality": "BRA",
+      "team": "Audi",
+      "points": 10,
+      "teamColor": "F50537",
+      "firstName": "Gabriel",
+      "lastName": "Bortoleto"
+    },
+    {
+      "position": 15,
+      "driverNumber": 27,
+      "name": "Nico Hulkenberg",
+      "code": "HUL",
+      "nationality": "GER",
+      "team": "Audi",
+      "points": 7,
+      "teamColor": "F50537",
+      "firstName": "Nico",
+      "lastName": "Hulkenberg"
+    },
+    {
+      "position": 16,
+      "driverNumber": 31,
+      "name": "Esteban Ocon",
+      "code": "OCO",
+      "nationality": "FRA",
+      "team": "Haas F1 Team",
+      "points": 7,
+      "teamColor": "B6BABD",
+      "firstName": "Esteban",
+      "lastName": "Ocon"
+    },
+    {
+      "position": 17,
+      "driverNumber": 55,
+      "name": "Carlos Sainz",
+      "code": "SAI",
+      "nationality": "ESP",
+      "team": "Williams",
+      "points": 7,
+      "teamColor": "64C4FF",
+      "firstName": "Carlos",
+      "lastName": "Sainz"
+    },
+    {
+      "position": 18,
+      "driverNumber": 23,
+      "name": "Alexander Albon",
+      "code": "ALB",
+      "nationality": "THA",
+      "team": "Williams",
+      "points": 5,
+      "teamColor": "64C4FF",
+      "firstName": "Alexander",
+      "lastName": "Albon"
+    },
+    {
+      "position": 19,
+      "driverNumber": 14,
+      "name": "Fernando Alonso",
+      "code": "ALO",
+      "nationality": "ESP",
+      "team": "Aston Martin",
+      "points": 3,
+      "teamColor": "229971",
+      "firstName": "Fernando",
+      "lastName": "Alonso"
+    },
+    {
+      "position": 20,
+      "driverNumber": 22,
+      "name": "Yuki Tsunoda",
+      "code": "TSU",
+      "nationality": "JPN",
+      "team": "Racing Bulls",
+      "points": 1,
+      "teamColor": "6692FF",
+      "firstName": "Yuki",
+      "lastName": "Tsunoda"
+    },
+    {
+      "position": 21,
+      "driverNumber": 18,
+      "name": "Lance Stroll",
+      "code": "STR",
+      "nationality": "CAN",
+      "team": "Aston Martin",
+      "points": 0,
+      "teamColor": "229971",
+      "firstName": "Lance",
+      "lastName": "Stroll"
+    },
+    {
+      "position": 22,
+      "driverNumber": 77,
+      "name": "Valtteri Bottas",
+      "code": "BOT",
+      "nationality": "FIN",
+      "team": "Cadillac",
+      "points": 0,
+      "teamColor": "C8C8C8",
+      "firstName": "Valtteri",
+      "lastName": "Bottas"
+    },
+    {
+      "position": 23,
+      "driverNumber": 11,
+      "name": "Sergio Perez",
+      "code": "PER",
+      "nationality": "MEX",
+      "team": "Cadillac",
+      "points": 0,
+      "teamColor": "C8C8C8",
+      "firstName": "Sergio",
+      "lastName": "Perez"
+    }
+  ],
+  "teams": [
+    {
+      "position": 1,
+      "team": "Mercedes",
+      "points": 503,
+      "teamColor": "27F4D2"
+    },
+    {
+      "position": 2,
+      "team": "Ferrari",
+      "points": 358,
+      "teamColor": "E80020"
+    },
+    {
+      "position": 3,
+      "team": "McLaren",
+      "points": 306,
+      "teamColor": "FF8000"
+    },
+    {
+      "position": 4,
+      "team": "Red Bull Racing",
+      "points": 230,
+      "teamColor": "3671C6"
+    },
+    {
+      "position": 5,
+      "team": "Racing Bulls",
+      "points": 77,
+      "teamColor": "6692FF"
+    },
+    {
+      "position": 6,
+      "team": "Alpine",
+      "points": 68,
+      "teamColor": "FF87BC"
+    },
+    {
+      "position": 7,
+      "team": "Haas F1 Team",
+      "points": 21,
+      "teamColor": "B6BABD"
+    },
+    {
+      "position": 8,
+      "team": "Audi",
+      "points": 17,
+      "teamColor": "F50537"
+    },
+    {
+      "position": 9,
+      "team": "Williams",
+      "points": 11,
+      "teamColor": "64C4FF"
+    },
+    {
+      "position": 10,
+      "team": "Aston Martin",
+      "points": 3,
+      "teamColor": "229971"
+    },
+    {
+      "position": 11,
+      "team": "Cadillac",
+      "points": 0,
+      "teamColor": "C8C8C8"
+    }
+  ],
+  "races": [
+    {
+      "round": 1,
+      "country": "Australia",
+      "name": "Australian Grand Prix",
+      "raceDate": "2026-03-08",
+      "location": "Melbourne",
+      "circuit": "Albert Park",
+      "winner": "George Russell",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 2,
+      "country": "China",
+      "name": "Chinese Grand Prix",
+      "raceDate": "2026-03-15",
+      "location": "Shanghai",
+      "circuit": "Shanghai International Circuit",
+      "winner": "Kimi Antonelli",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 3,
+      "country": "Japan",
+      "name": "Japanese Grand Prix",
+      "raceDate": "2026-03-29",
+      "location": "Suzuka",
+      "circuit": "Suzuka Circuit",
+      "winner": "Kimi Antonelli",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 4,
+      "country": "Miami",
+      "name": "Miami Grand Prix",
+      "raceDate": "2026-05-03",
+      "location": "Miami",
+      "circuit": "Miami International Autodrome",
+      "winner": "Kimi Antonelli",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 5,
+      "country": "Canada",
+      "name": "Canadian Grand Prix",
+      "raceDate": "2026-05-24",
+      "location": "Montréal",
+      "circuit": "Circuit Gilles Villeneuve",
+      "winner": "Kimi Antonelli",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 6,
+      "country": "Monaco",
+      "name": "Monaco Grand Prix",
+      "raceDate": "2026-06-07",
+      "location": "Monte Carlo",
+      "circuit": "Circuit de Monaco",
+      "winner": "Kimi Antonelli",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 7,
+      "country": "Barcelona-Catalunya",
+      "name": "Barcelona-Catalunya Grand Prix",
+      "raceDate": "2026-06-14",
+      "location": "Barcelona",
+      "circuit": "Circuit de Barcelona-Catalunya",
+      "winner": "Lewis Hamilton",
+      "winnerTeam": "Ferrari",
+      "status": "complete"
+    },
+    {
+      "round": 8,
+      "country": "Austria",
+      "name": "Austrian Grand Prix",
+      "raceDate": "2026-06-28",
+      "location": "Spielberg",
+      "circuit": "Red Bull Ring",
+      "winner": "George Russell",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 9,
+      "country": "Great Britain",
+      "name": "British Grand Prix",
+      "raceDate": "2026-07-05",
+      "location": "Silverstone",
+      "circuit": "Silverstone Circuit",
+      "winner": "Charles Leclerc",
+      "winnerTeam": "Ferrari",
+      "status": "complete"
+    },
+    {
+      "round": 10,
+      "country": "Belgium",
+      "name": "Belgian Grand Prix",
+      "raceDate": "2026-07-19",
+      "location": "Spa-Francorchamps",
+      "circuit": "Circuit de Spa-Francorchamps",
+      "winner": "Kimi Antonelli",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 11,
+      "country": "Hungary",
+      "name": "Hungarian Grand Prix",
+      "raceDate": "2026-07-26",
+      "location": "Budapest",
+      "circuit": "Hungaroring",
+      "winner": "Lando Norris",
+      "winnerTeam": "McLaren",
+      "status": "complete"
+    },
+    {
+      "round": 12,
+      "country": "Netherlands",
+      "name": "Dutch Grand Prix",
+      "raceDate": "2026-08-23",
+      "location": "Zandvoort",
+      "circuit": "Circuit Zandvoort",
+      "winner": "Lando Norris",
+      "winnerTeam": "McLaren",
+      "status": "complete"
+    },
+    {
+      "round": 13,
+      "country": "Italy",
+      "name": "Italian Grand Prix",
+      "raceDate": "2026-09-06",
+      "location": "Monza",
+      "circuit": "Autodromo Nazionale Monza",
+      "winner": "Kimi Antonelli",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 14,
+      "country": "Spain",
+      "name": "Spanish Grand Prix",
+      "raceDate": "2026-09-13",
+      "location": "Madrid",
+      "circuit": "Madring",
+      "winner": "Kimi Antonelli",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 15,
+      "country": "Azerbaijan",
+      "name": "Azerbaijan Grand Prix",
+      "raceDate": "2026-09-26",
+      "location": "Baku",
+      "circuit": "Baku City Circuit",
+      "winner": "George Russell",
+      "winnerTeam": "Mercedes",
+      "status": "complete"
+    },
+    {
+      "round": 16,
+      "country": "Bahrain",
+      "name": "Bahrain Grand Prix in Malaysia",
+      "raceDate": "2026-10-04",
+      "location": "Sepang",
+      "circuit": "Sepang International Circuit",
+      "winner": null,
+      "winnerTeam": null,
+      "status": "upcoming"
+    },
+    {
+      "round": 17,
+      "country": "Singapore",
+      "name": "Singapore Grand Prix",
+      "raceDate": "2026-10-11",
+      "location": "Singapore",
+      "circuit": "Marina Bay Street Circuit",
+      "winner": null,
+      "winnerTeam": null,
+      "status": "upcoming"
+    },
+    {
+      "round": 18,
+      "country": "United States",
+      "name": "United States Grand Prix",
+      "raceDate": "2026-10-25",
+      "location": "Austin",
+      "circuit": "Circuit of the Americas",
+      "winner": null,
+      "winnerTeam": null,
+      "status": "upcoming"
+    },
+    {
+      "round": 19,
+      "country": "Mexico",
+      "name": "Mexico City Grand Prix",
+      "raceDate": "2026-11-01",
+      "location": "Mexico City",
+      "circuit": "Autódromo Hermanos Rodríguez",
+      "winner": null,
+      "winnerTeam": null,
+      "status": "upcoming"
+    },
+    {
+      "round": 20,
+      "country": "Brazil",
+      "name": "São Paulo Grand Prix",
+      "raceDate": "2026-11-08",
+      "location": "São Paulo",
+      "circuit": "Interlagos",
+      "winner": null,
+      "winnerTeam": null,
+      "status": "upcoming"
+    },
+    {
+      "round": 21,
+      "country": "Las Vegas",
+      "name": "Las Vegas Grand Prix",
+      "raceDate": "2026-11-21",
+      "location": "Las Vegas",
+      "circuit": "Las Vegas Strip Circuit",
+      "winner": null,
+      "winnerTeam": null,
+      "status": "upcoming"
+    },
+    {
+      "round": 22,
+      "country": "Qatar",
+      "name": "Qatar Grand Prix",
+      "raceDate": "2026-11-29",
+      "location": "Lusail",
+      "circuit": "Lusail International Circuit",
+      "winner": null,
+      "winnerTeam": null,
+      "status": "upcoming"
+    },
+    {
+      "round": 23,
+      "country": "Abu Dhabi",
+      "name": "Abu Dhabi Grand Prix",
+      "raceDate": "2026-12-06",
+      "location": "Abu Dhabi",
+      "circuit": "Yas Marina Circuit",
+      "winner": null,
+      "winnerTeam": null,
+      "status": "upcoming"
+    }
+  ],
+  "latestRace": {
+    "round": 15,
+    "name": "Azerbaijan Grand Prix",
+    "country": "Azerbaijan",
+    "date": "2026-09-26",
+    "circuit": "Baku City Circuit",
+    "location": "Baku",
+    "results": [
+      {
+        "position": 1,
+        "driverNumber": 63,
+        "name": "George Russell",
+        "team": "Mercedes",
+        "time": "1:38:02.143",
+        "points": 25
+      },
+      {
+        "position": 2,
+        "driverNumber": 3,
+        "name": "Max Verstappen",
+        "team": "Red Bull Racing",
+        "time": "+0.196s",
+        "points": 18
+      },
+      {
+        "position": 3,
+        "driverNumber": 6,
+        "name": "Isack Hadjar",
+        "team": "Red Bull Racing",
+        "time": "+10.704s",
+        "points": 15
+      },
+      {
+        "position": 4,
+        "driverNumber": 16,
+        "name": "Charles Leclerc",
+        "team": "Ferrari",
+        "time": "+14.136s",
+        "points": 12
+      },
+      {
+        "position": 5,
+        "driverNumber": 12,
+        "name": "Kimi Antonelli",
+        "team": "Mercedes",
+        "time": "+14.512s",
+        "points": 10
+      },
+      {
+        "position": 6,
+        "driverNumber": 44,
+        "name": "Lewis Hamilton",
+        "team": "Ferrari",
+        "time": "+22.382s",
+        "points": 8
+      },
+      {
+        "position": 7,
+        "driverNumber": 41,
+        "name": "Arvid Lindblad",
+        "team": "Racing Bulls",
+        "time": "+31.159s",
+        "points": 6
+      },
+      {
+        "position": 8,
+        "driverNumber": 31,
+        "name": "Esteban Ocon",
+        "team": "Haas F1 Team",
+        "time": "+31.189s",
+        "points": 4
+      },
+      {
+        "position": 9,
+        "driverNumber": 87,
+        "name": "Oliver Bearman",
+        "team": "Haas F1 Team",
+        "time": "+31.929s",
+        "points": 2
+      },
+      {
+        "position": 10,
+        "driverNumber": 55,
+        "name": "Carlos Sainz",
+        "team": "Williams",
+        "time": "+32.416s",
+        "points": 1
+      },
+      {
+        "position": 11,
+        "driverNumber": 27,
+        "name": "Nico Hulkenberg",
+        "team": "Audi",
+        "time": "+33.231s",
+        "points": 0
+      },
+      {
+        "position": 12,
+        "driverNumber": 30,
+        "name": "Liam Lawson",
+        "team": "Racing Bulls",
+        "time": "+34.013s",
+        "points": 0
+      },
+      {
+        "position": 13,
+        "driverNumber": 81,
+        "name": "Oscar Piastri",
+        "team": "McLaren",
+        "time": "+36.401s",
+        "points": 0
+      },
+      {
+        "position": 14,
+        "driverNumber": 11,
+        "name": "Sergio Perez",
+        "team": "Cadillac",
+        "time": "+41.400s",
+        "points": 0
+      },
+      {
+        "position": 15,
+        "driverNumber": 5,
+        "name": "Gabriel Bortoleto",
+        "team": "Audi",
+        "time": "+44.230s",
+        "points": 0
+      },
+      {
+        "position": 16,
+        "driverNumber": 77,
+        "name": "Valtteri Bottas",
+        "team": "Cadillac",
+        "time": "DNF",
+        "points": 0
+      },
+      {
+        "position": 17,
+        "driverNumber": 43,
+        "name": "Franco Colapinto",
+        "team": "Alpine",
+        "time": "DNF",
+        "points": 0
+      },
+      {
+        "position": 18,
+        "driverNumber": 10,
+        "name": "Pierre Gasly",
+        "team": "Alpine",
+        "time": "DNF",
+        "points": 0
+      },
+      {
+        "position": 19,
+        "driverNumber": 1,
+        "name": "Lando Norris",
+        "team": "McLaren",
+        "time": "DNF",
+        "points": 0
+      },
+      {
+        "position": 20,
+        "driverNumber": 23,
+        "name": "Alexander Albon",
+        "team": "Williams",
+        "time": "DNF",
+        "points": 0
+      },
+      {
+        "position": 21,
+        "driverNumber": 14,
+        "name": "Fernando Alonso",
+        "team": "Aston Martin",
+        "time": "DNF",
+        "points": 0
+      },
+      {
+        "position": 22,
+        "driverNumber": 18,
+        "name": "Lance Stroll",
+        "team": "Aston Martin",
+        "time": "DNF",
+        "points": 0
+      }
+    ]
+  },
+  "nextRace": {
+    "round": 16,
+    "name": "Bahrain Grand Prix in Malaysia",
+    "country": "Bahrain",
+    "dateStart": "2026-10-02",
+    "dateEnd": "2026-10-04",
+    "raceDate": "2026-10-04",
+    "circuit": "Sepang International Circuit",
+    "location": "Sepang, Malaysia",
+    "sessions": [
+      {
+        "name": "Practice 1",
+        "date": "2026-10-02",
+        "time": null
+      },
+      {
+        "name": "Practice 2",
+        "date": "2026-10-02",
+        "time": null
+      },
+      {
+        "name": "Practice 3",
+        "date": "2026-10-03",
+        "time": null
+      },
+      {
+        "name": "Qualifying",
+        "date": "2026-10-03",
+        "time": null
+      },
+      {
+        "name": "Race",
+        "date": "2026-10-04",
+        "time": null
+      }
+    ]
+  }
+}
