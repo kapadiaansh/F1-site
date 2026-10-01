@@ -1,472 +1,286 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#090b0f" />
-  <meta
-    name="description"
-    content="A modern independent motorsport statistics, schedule and history dashboard."
-  />
-  <title>APEX // Motorsport Data</title>
-
-    <link rel="stylesheet" href="style.css?v=6" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080a0f">
+  <meta name="description" content="Independent Formula racing statistics, race weekends and history.">
+  <title>APEX — Motorsport Data</title>
+  <link rel="stylesheet" href="styles.css?v=7">
 </head>
-
 <body>
-  <div class="noise" aria-hidden="true"></div>
-  <div class="speed-line speed-line-one" aria-hidden="true"></div>
-  <div class="speed-line speed-line-two" aria-hidden="true"></div>
+  <div class="progress" id="progress"></div>
 
-  <header class="site-header">
-    <a class="brand" href="#top" aria-label="APEX home">
-      <span class="brand-mark">A</span>
-      <span class="brand-copy">
-        <strong>APEX</strong>
-        <small>MOTORSPORT DATA</small>
-      </span>
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#home" aria-label="APEX home">
+      <span class="brand-symbol">A</span>
+      <span><strong>APEX</strong><small>MOTORSPORT DATA</small></span>
     </a>
 
-    <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="calendar.html">Calendar</a>
-      <a href="drivers.html">Drivers</a>
-      <a href="archive.html">Archive</a>
-      <a href="compare.html">Compare</a>
-      <a href="#history">On This Day</a>
+    <nav class="nav" id="nav">
+      <a href="#weekend">Weekend</a>
+      <a href="#standings">Standings</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#compare">Compare</a>
+      <a href="#history">History</a>
     </nav>
 
-    <div class="header-actions">
-      <span class="data-pill">
-        <span class="status-dot"></span>
-        LOCAL SNAPSHOT
-      </span>
-      <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">
+    <div class="top-actions">
+      <span class="snapshot"><i></i> SEP 30 SNAPSHOT</span>
+      <button class="icon-button" id="menuBtn" aria-label="Open navigation" aria-expanded="false">
         <span></span><span></span>
       </button>
     </div>
   </header>
 
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-    <a href="#race-weekend">Race Weekend</a>
-    <a href="#standings">Standings</a>
-    <a href="#latest">Latest Result</a>
-    <a href="#history">On This Day</a>
-  </nav>
-
-  <main id="top">
-    <section class="hero shell">
-      <div class="eyebrow">
-        <span>2026 SEASON</span>
-        <span class="slash">/</span>
-        <span>DATA • HISTORY • RACE WEEKENDS</span>
+  <main>
+    <section class="hero section-anchor" id="home">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-gridlines"></div>
+        <div class="speed-streak one"></div>
+        <div class="speed-streak two"></div>
       </div>
 
-      <div class="hero-grid">
-        <div class="hero-copy">
-          <p class="kicker">THE NEXT LIGHTS OUT</p>
-          <h1 id="nextRaceName">Bahrain Grand Prix in Malaysia</h1>
+      <div class="container hero-layout">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span>ROUND 16</span><b></b><span>2026 SEASON</span></div>
+          <p class="label">NEXT LIGHTS OUT</p>
+          <h1>SEPANG<br><em>RETURNS.</em></h1>
+          <p class="hero-lead">
+            Bahrain Grand Prix in Malaysia · Sepang International Circuit
+          </p>
 
-          <div class="race-meta">
-            <span id="nextRaceLocation">Sepang, Malaysia</span>
-            <span class="meta-separator"></span>
-            <span id="nextRaceDates">OCT 2–4, 2026</span>
+          <div class="countdown" id="countdown" aria-label="Countdown to the race">
+            <div><strong id="cdDays">--</strong><span>DAYS</span></div>
+            <i>:</i>
+            <div><strong id="cdHours">--</strong><span>HRS</span></div>
+            <i>:</i>
+            <div><strong id="cdMinutes">--</strong><span>MIN</span></div>
+            <i>:</i>
+            <div><strong id="cdSeconds">--</strong><span>SEC</span></div>
           </div>
 
-          <div class="countdown" id="countdown" aria-label="Countdown to next session">
-            <div>
-              <strong id="days">01</strong>
-              <span>DAYS</span>
-            </div>
-            <i>:</i>
-            <div>
-              <strong id="hours">00</strong>
-              <span>HRS</span>
-            </div>
-            <i>:</i>
-            <div>
-              <strong id="minutes">00</strong>
-              <span>MIN</span>
-            </div>
-            <i>:</i>
-            <div>
-              <strong id="seconds">00</strong>
-              <span>SEC</span>
-            </div>
-          </div>
-
-          <div class="hero-cta-row">
-            <a class="button button-primary" href="#race-weekend">View race weekend</a>
-            <a class="button button-ghost" href="#standings">Championship</a>
+          <div class="hero-buttons">
+            <a class="btn primary" href="#weekend">Race weekend <span>↘</span></a>
+            <a class="btn ghost" href="#standings">Championship</a>
           </div>
         </div>
 
-        <aside class="telemetry-card">
-          <div class="telemetry-top">
-            <span>NEXT SESSION</span>
-            <span class="live-chip" id="sessionState">UPCOMING</span>
+        <aside class="race-console reveal">
+          <div class="console-head">
+            <span><i class="pulse"></i> NEXT SESSION</span>
+            <strong id="nextSessionBadge">FP1</strong>
           </div>
 
-          <div class="session-feature">
-            <span class="session-number" id="nextSessionCode">W</span>
+          <div class="console-session">
+            <div class="session-code" id="nextSessionCode">FP1</div>
             <div>
-              <small id="nextSessionDay">FRI, OCT 2</small>
-              <h2 id="nextSessionName">Race weekend</h2>
-              <p id="nextSessionTime">Session times TBC</p>
+              <small id="nextSessionDate">FRI 02 OCT</small>
+              <h2 id="nextSessionName">Practice 1</h2>
+              <p id="nextSessionTime">12:30 TRACK TIME</p>
             </div>
           </div>
 
-          <div class="telemetry-bars" aria-hidden="true">
-            <span style="--bar: 91%"></span>
-            <span style="--bar: 74%"></span>
-            <span style="--bar: 83%"></span>
-            <span style="--bar: 59%"></span>
-            <span style="--bar: 96%"></span>
-            <span style="--bar: 68%"></span>
-            <span style="--bar: 78%"></span>
-            <span style="--bar: 49%"></span>
-            <span style="--bar: 87%"></span>
+          <div class="rpm" aria-hidden="true">
+            <span style="--h:35%"></span><span style="--h:55%"></span><span style="--h:46%"></span>
+            <span style="--h:72%"></span><span style="--h:63%"></span><span style="--h:88%"></span>
+            <span style="--h:79%"></span><span style="--h:96%"></span><span style="--h:67%"></span>
+            <span style="--h:82%"></span><span style="--h:58%"></span><span style="--h:91%"></span>
           </div>
 
-          <div class="telemetry-footer">
-            <span>LOCAL TIME</span>
-            <strong id="localClock">--:--:--</strong>
+          <div class="console-bottom">
+            <div><small>TRACK</small><strong>SEPANG</strong></div>
+            <div><small>LAPS</small><strong>56</strong></div>
+            <div><small>LOCAL</small><strong id="clock">--:--</strong></div>
           </div>
+        </aside>
+      </div>
+
+      <div class="marquee" aria-hidden="true">
+        <div>
+          <span>SEPANG</span><i>◆</i><span>CHAMPIONSHIP</span><i>◆</i><span>HISTORY</span><i>◆</i>
+          <span>RACE DATA</span><i>◆</i><span>SEPANG</span><i>◆</i><span>CHAMPIONSHIP</span><i>◆</i>
+          <span>HISTORY</span><i>◆</i><span>RACE DATA</span><i>◆</i>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-anchor" id="weekend">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="label">02 — 04 OCTOBER</p><h2>Race weekend</h2></div>
+          <div class="time-toggle" role="group" aria-label="Session time zone">
+            <button class="active" data-time="local">My time</button>
+            <button data-time="track">Track time</button>
+          </div>
+        </div>
+
+        <div class="weekend-grid">
+          <article class="track-card reveal">
+            <div class="track-top">
+              <span>ROUND 16</span><strong>MY</strong>
+            </div>
+            <div class="track-art" aria-hidden="true">
+              <svg viewBox="0 0 420 260">
+                <path class="track-shadow" d="M77 135c-7-39 24-72 67-71 32 1 44 21 69 21 34 0 48-35 88-27 37 7 48 42 27 66-21 23-56 8-68 34-12 27 17 51-10 68-31 20-61-7-83-26-27-24-80-14-90-65Z"/>
+                <path class="track-line" d="M77 135c-7-39 24-72 67-71 32 1 44 21 69 21 34 0 48-35 88-27 37 7 48 42 27 66-21 23-56 8-68 34-12 27 17 51-10 68-31 20-61-7-83-26-27-24-80-14-90-65Z"/>
+              </svg>
+              <span class="track-name">SEPANG</span>
+            </div>
+            <div class="track-facts">
+              <div><small>LENGTH</small><strong>5.543 km</strong></div>
+              <div><small>RACE</small><strong>310.398 km</strong></div>
+              <div><small>LAPS</small><strong>56</strong></div>
+              <div><small>FIRST GP</small><strong>1999</strong></div>
+            </div>
+          </article>
+
+          <div class="sessions reveal" id="sessionList"></div>
+        </div>
+
+        <div class="weather reveal" id="weatherStrip"></div>
+      </div>
+    </section>
+
+    <section class="section alt section-anchor" id="standings">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="label">CHAMPIONSHIP</p><h2>Standings</h2></div>
+          <div class="tabs" role="tablist">
+            <button class="active" data-standing="drivers">Drivers</button>
+            <button data-standing="teams">Constructors</button>
+          </div>
+        </div>
+
+        <div class="standings-shell reveal">
+          <div class="standings-toolbar">
+            <label class="search">
+              <span>⌕</span>
+              <input id="standingSearch" type="search" placeholder="Search driver or team">
+            </label>
+            <span id="standingMeta">23 DRIVERS</span>
+          </div>
+          <div class="standings-head">
+            <span>POS</span><span>COMPETITOR</span><span>TEAM</span><span>PTS</span>
+          </div>
+          <div id="standingsRows"></div>
+          <button class="show-more" id="showMore">Show all standings <span>↓</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-anchor" id="latest">
+      <div class="container result-layout">
+        <div class="result-main reveal">
+          <div class="section-head compact">
+            <div><p class="label">LAST CHEQUERED FLAG</p><h2>Azerbaijan</h2></div>
+            <span class="date-chip">26 SEP · BAKU</span>
+          </div>
+
+          <div class="podium-grid" id="podium"></div>
+
+          <div class="result-table">
+            <div class="result-table-head"><span>POS</span><span>DRIVER</span><span>TEAM</span><span>GAP</span><span>PTS</span></div>
+            <div id="resultRows"></div>
+            <button class="show-more" id="toggleResults">Full top 10 <span>↓</span></button>
+          </div>
+        </div>
+
+        <aside class="battle-card reveal">
+          <p class="label">TITLE BATTLE</p>
+          <h3>66 points<br>separate the<br>Mercedes pair.</h3>
+          <div class="battle-driver">
+            <div><span>01</span><strong>Kimi Antonelli</strong></div><b>302</b>
+          </div>
+          <div class="battle-bar"><i></i></div>
+          <div class="battle-driver">
+            <div><span>02</span><strong>George Russell</strong></div><b>236</b>
+          </div>
+          <p class="battle-note">Eight rounds remain after Baku.</p>
         </aside>
       </div>
     </section>
 
-    <section class="ticker" aria-label="Site highlights">
-      <div class="ticker-track">
-        <span>RACE CALENDAR</span><b>●</b>
-        <span>DRIVER STANDINGS</span><b>●</b>
-        <span>CONSTRUCTOR STANDINGS</span><b>●</b>
-        <span>HISTORICAL MOMENTS</span><b>●</b>
-        <span>SESSION RESULTS</span><b>●</b>
-        <span>RACE CALENDAR</span><b>●</b>
-        <span>DRIVER STANDINGS</span><b>●</b>
-        <span>CONSTRUCTOR STANDINGS</span><b>●</b>
-        <span>HISTORICAL MOMENTS</span><b>●</b>
-        <span>SESSION RESULTS</span><b>●</b>
+    <section class="section alt section-anchor" id="calendar">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="label">2026 SEASON</p><h2>Calendar</h2></div>
+          <div class="calendar-filter">
+            <button class="active" data-race-filter="all">All</button>
+            <button data-race-filter="complete">Completed</button>
+            <button data-race-filter="upcoming">Upcoming</button>
+          </div>
+        </div>
+        <div class="calendar-track reveal" id="calendarTrack"></div>
       </div>
     </section>
 
-    <section class="section shell" id="race-weekend">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">RACE WEEKEND</p>
-          <h2>Next on track</h2>
+    <section class="section section-anchor" id="compare">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="label">HEAD TO HEAD</p><h2>Compare drivers</h2></div>
+          <p class="section-copy">Choose two current drivers. Stats are calculated from the verified 2026 snapshot.</p>
         </div>
-        <p class="section-intro">
-          Session times automatically update from the current season calendar.
-        </p>
-      </div>
 
-      <div class="weekend-layout">
-        <article class="circuit-card">
-          <div class="corner-tag">NEXT GP</div>
-          <div class="circuit-visual">
-            <div class="circuit-ring"></div>
-            <div class="circuit-ring circuit-ring-two"></div>
-            <span class="circuit-monogram" id="circuitMonogram">GP</span>
-          </div>
-          <div class="circuit-copy">
-            <small id="circuitCountry">BAHRAIN</small>
-            <h3 id="circuitName">Sepang International Circuit</h3>
-            <p id="circuitType">Grand Prix weekend</p>
-          </div>
-        </article>
+        <div class="compare-picker reveal">
+          <label>DRIVER A<select id="compareA"></select></label>
+          <span>VS</span>
+          <label>DRIVER B<select id="compareB"></select></label>
+        </div>
 
-        <div class="session-list" id="sessionList">
-          <article class="session-row is-next">
-            <div class="session-date">FRI, OCT 2</div>
-            <div class="session-name">Practice 1</div>
-            <div class="session-time">TBC<small>NEXT</small></div>
-          </article>
-          <article class="session-row">
-            <div class="session-date">FRI, OCT 2</div>
-            <div class="session-name">Practice 2</div>
-            <div class="session-time">TBC<small>UPCOMING</small></div>
-          </article>
-          <article class="session-row">
-            <div class="session-date">SAT, OCT 3</div>
-            <div class="session-name">Practice 3</div>
-            <div class="session-time">TBC<small>UPCOMING</small></div>
-          </article>
-          <article class="session-row">
-            <div class="session-date">SAT, OCT 3</div>
-            <div class="session-name">Qualifying</div>
-            <div class="session-time">TBC<small>UPCOMING</small></div>
-          </article>
-          <article class="session-row">
-            <div class="session-date">SUN, OCT 4</div>
-            <div class="session-name">Race</div>
-            <div class="session-time">TBC<small>UPCOMING</small></div>
-          </article>
-</div>
+        <div class="compare-board reveal" id="compareBoard"></div>
       </div>
     </section>
 
-    <section class="section shell" id="standings">
-      <div class="section-heading">
-        <div>
-          <p class="kicker">CHAMPIONSHIP</p>
-          <h2>Standings</h2>
-        </div>
-
-        <div class="segmented" role="tablist" aria-label="Standings type">
-          <button class="segment active" data-tab="drivers" role="tab" aria-selected="true">Drivers</button>
-          <button class="segment" data-tab="teams" role="tab" aria-selected="false">Constructors</button>
-        </div>
-      </div>
-
-      <div class="standings-card">
-        <div class="standings-head">
-          <span>POS</span>
-          <span>COMPETITOR</span>
-          <span>PTS</span>
-        </div>
-        <div id="standingsBody">
-          <div class="standing-row">
-            <div class="position">01</div>
-            <div class="competitor">
-              <span class="team-color" style="--team-color:#27F4D2"></span>
-              <div class="competitor-name"><strong>Kimi Antonelli</strong><small>Mercedes</small></div>
-            </div>
-            <div class="points">302<small>PTS</small></div>
-          </div>
-          <div class="standing-row">
-            <div class="position">02</div>
-            <div class="competitor">
-              <span class="team-color" style="--team-color:#27F4D2"></span>
-              <div class="competitor-name"><strong>George Russell</strong><small>Mercedes</small></div>
-            </div>
-            <div class="points">236<small>PTS</small></div>
-          </div>
-          <div class="standing-row">
-            <div class="position">03</div>
-            <div class="competitor">
-              <span class="team-color" style="--team-color:#E80020"></span>
-              <div class="competitor-name"><strong>Lewis Hamilton</strong><small>Ferrari</small></div>
-            </div>
-            <div class="points">199<small>PTS</small></div>
-          </div>
-          <div class="standing-row">
-            <div class="position">04</div>
-            <div class="competitor">
-              <span class="team-color" style="--team-color:#FF8000"></span>
-              <div class="competitor-name"><strong>Lando Norris</strong><small>McLaren</small></div>
-            </div>
-            <div class="points">186<small>PTS</small></div>
-          </div>
-          <div class="standing-row">
-            <div class="position">05</div>
-            <div class="competitor">
-              <span class="team-color" style="--team-color:#E80020"></span>
-              <div class="competitor-name"><strong>Charles Leclerc</strong><small>Ferrari</small></div>
-            </div>
-            <div class="points">179<small>PTS</small></div>
-          </div>
-          <div class="standing-row">
-            <div class="position">06</div>
-            <div class="competitor">
-              <span class="team-color" style="--team-color:#3671C6"></span>
-              <div class="competitor-name"><strong>Max Verstappen</strong><small>Red Bull Racing</small></div>
-            </div>
-            <div class="points">163<small>PTS</small></div>
-          </div>
-          <div class="standing-row">
-            <div class="position">07</div>
-            <div class="competitor">
-              <span class="team-color" style="--team-color:#FF8000"></span>
-              <div class="competitor-name"><strong>Oscar Piastri</strong><small>McLaren</small></div>
-            </div>
-            <div class="points">120<small>PTS</small></div>
-          </div>
-          <div class="standing-row">
-            <div class="position">08</div>
-            <div class="competitor">
-              <span class="team-color" style="--team-color:#3671C6"></span>
-              <div class="competitor-name"><strong>Isack Hadjar</strong><small>Red Bull Racing</small></div>
-            </div>
-            <div class="points">86<small>PTS</small></div>
-          </div>
-          <div class="standing-row">
-            <div class="position">09</div>
-            <div class="competitor">
-              <span class="team-color" style="--team-color:#6692FF"></span>
-              <div class="competitor-name"><strong>Liam Lawson</strong><small>Racing Bulls</small></div>
-            </div>
-            <div class="points">59<small>PTS</small></div>
-          </div>
-          <div class="standing-row">
-            <div class="position">10</div>
-            <div class="competitor">
-              <span class="team-color" style="--team-color:#FF87BC"></span>
-              <div class="competitor-name"><strong>Pierre Gasly</strong><small>Alpine</small></div>
-            </div>
-            <div class="points">41<small>PTS</small></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section shell latest-grid" id="latest">
-      <div>
-        <div class="section-heading compact-heading">
-          <div>
-            <p class="kicker">LAST CHEQUERED FLAG</p>
-            <h2>Latest result</h2>
-          </div>
-        </div>
-
-        <article class="result-card">
-          <div class="result-header">
-            <div>
-              <small id="latestRaceDate">SEP 26, 2026</small>
-              <h3 id="latestRaceName">Azerbaijan Grand Prix</h3>
-            </div>
-            <span class="result-label">RACE RESULT</span>
-          </div>
-
-          <div class="podium" id="podium">
-            <div class="podium-row">
-              <div class="podium-position">P1</div>
-              <div class="podium-driver"><strong>George Russell</strong><small>Mercedes</small></div>
-              <div class="podium-number">#63</div>
-            </div>
-            <div class="podium-row">
-              <div class="podium-position">P2</div>
-              <div class="podium-driver"><strong>Max Verstappen</strong><small>Red Bull Racing</small></div>
-              <div class="podium-number">#3</div>
-            </div>
-            <div class="podium-row">
-              <div class="podium-position">P3</div>
-              <div class="podium-driver"><strong>Isack Hadjar</strong><small>Red Bull Racing</small></div>
-              <div class="podium-number">#6</div>
-            </div>
-          </div>
-
-          <div class="result-footer">
-            <span>Official session data after publication</span>
-            <span>Local 2026 snapshot</span>
-          </div>
-        </article>
-      </div>
-
-      <aside class="live-panel">
-        <div class="panel-heading">
-          <span class="status-dot"></span>
-          <span>SESSION CENTER</span>
-        </div>
-        <h3 id="centerTitle">Bahrain Grand Prix in Malaysia next</h3>
-        <p id="centerCopy">Round 16 runs October 2–4 at Sepang International Circuit.</p>
-
-        <div class="mini-stat-grid">
-          <div>
-            <small>SEASON</small>
-            <strong id="seasonStat">2026</strong>
-          </div>
-          <div>
-            <small>ROUND</small>
-            <strong id="roundStat">16</strong>
-          </div>
-          <div>
-            <small>NEXT</small>
-            <strong id="nextStat">R16</strong>
-          </div>
-          <div>
-            <small>DATA</small>
-            <strong>API</strong>
-          </div>
-        </div>
-
-        <div class="premium-note">
-          <strong>Live timing ready</strong>
-          <p>
-            Architecture is prepared for real-time intervals, weather and race-control data.
-            Free mode currently uses schedule and completed-session data.
-          </p>
-        </div>
-      </aside>
-    </section>
-
-    <section class="history-section" id="history">
-      <div class="shell history-inner">
-        <div class="history-date">
-          <p class="kicker">ON THIS DAY</p>
+    <section class="history section-anchor" id="history">
+      <div class="container history-layout">
+        <div class="history-date reveal">
+          <p class="label">ON THIS DAY</p>
           <strong id="historyDay">30</strong>
           <span id="historyMonth">SEP</span>
         </div>
 
-        <article class="history-story">
-          <div class="history-year" id="historyYear">2007</div>
-          <div>
-            <p class="history-category" id="historyCategory">RACE HISTORY</p>
-            <h2 id="historyTitle">A famous Sunday at Fuji</h2>
-            <p id="historyDescription">
-              Loading a curated moment from motorsport history…
-            </p>
+        <article class="history-card reveal">
+          <span class="history-year" id="historyYear">2007</span>
+          <p class="label" id="historyCategory">RACE HISTORY</p>
+          <h2 id="historyTitle">Hamilton masters a rain-soaked Fuji</h2>
+          <p id="historyText"></p>
+          <div class="history-controls">
+            <button id="historyPrev" aria-label="Previous story">←</button>
+            <span id="historyCount">01 / 02</span>
+            <button id="historyNext" aria-label="Next story">→</button>
           </div>
         </article>
-
-        <div class="history-controls">
-          <button id="prevHistory" aria-label="Previous historical story">←</button>
-          <span id="historyIndex">01 / 01</span>
-          <button id="nextHistory" aria-label="Next historical story">→</button>
-        </div>
       </div>
     </section>
 
-    <section class="section shell">
-      <div class="feature-strip">
-        <a class="feature-link" href="drivers.html"><article>
-          <span>01</span>
-          <h3>Drivers</h3>
-          <p>Browse the current grid, championship positions and individual season profiles.</p>
-        </article></a>
-        <a class="feature-link" href="calendar.html"><article>
-          <span>02</span>
-          <h3>Calendar</h3>
-          <p>Explore every current-season race weekend, session schedule and published result.</p>
-        </article></a>
-        <a class="feature-link" href="compare.html"><article>
-          <span>03</span>
-          <h3>Compare</h3>
-          <p>Put two current drivers head to head using championship and season-result data.</p>
-        </article></a>
+    <section class="section sources">
+      <div class="container source-line reveal">
+        <div><p class="label">DATA NOTE</p><h2>Stable by design.</h2></div>
+        <p>
+          The public site renders from a verified local snapshot, so it does not break when a third-party API is unavailable.
+          Future live timing can be layered on separately without risking the core experience.
+        </p>
+        <a class="text-link" href="https://www.formula1.com/en/results/2026/drivers" target="_blank" rel="noreferrer">Official standings ↗</a>
       </div>
     </section>
-
-    <!--
-      MONETIZATION SLOT:
-      Once the site has substantial original content and is approved by an ad network,
-      an ad unit can be inserted here without redesigning the page.
-    -->
   </main>
 
   <footer>
-    <div class="shell footer-inner">
-      <div>
-        <a class="brand footer-brand" href="#top">
-          <span class="brand-mark">A</span>
-          <span class="brand-copy">
-            <strong>APEX</strong>
-            <small>MOTORSPORT DATA</small>
-          </span>
-        </a>
-        <p>Independent motorsport statistics and history project.</p>
+    <div class="container footer">
+      <div class="brand footer-brand">
+        <span class="brand-symbol">A</span>
+        <span><strong>APEX</strong><small>MOTORSPORT DATA</small></span>
       </div>
-
-      <div class="footer-meta">
-        <p>Current data: local 2026 snapshot</p>
-        <p>Not affiliated with Formula One Management, Formula One Licensing B.V. or the FIA.</p><p class="build-id">Build V6 · static-first</p>
+      <p>Independent motorsport statistics & history project.</p>
+      <div class="footer-right">
+        <span>DATA UPDATED 30 SEP 2026</span>
+        <span>BUILD V7 · CLEAN REWRITE</span>
       </div>
     </div>
   </footer>
 
-  <script src="current-snapshot.js?v=6"></script>
-  <script src="history-data.js?v=6"></script>
-  <script src="current-data.js?v=6"></script>
-  <script src="script.js?v=6"></script>
+  <script src="data.js?v=7"></script>
+  <script src="app.js?v=7"></script>
 </body>
 </html>
