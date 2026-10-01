@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Current Formula racing season calendar, sessions and race weekends.">
+  <meta name="theme-color" content="#090b0f">
+  <title>Season Calendar // APEX</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="APEX home">
+      <span class="brand-mark">A</span>
+      <span class="brand-copy"><strong>APEX</strong><small>MOTORSPORT DATA</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation"><a href="index.html" class="">Home</a>
+<a href="calendar.html" class="active-link">Calendar</a>
+<a href="drivers.html" class="">Drivers</a>
+<a href="compare.html" class="">Compare</a></nav>
+    <div class="header-actions">
+      <span class="data-pill"><span class="status-dot"></span>OPENF1 DATA</span>
+      <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation"><a href="index.html" class="">Home</a>
+<a href="calendar.html" class="active-link">Calendar</a>
+<a href="drivers.html" class="">Drivers</a>
+<a href="compare.html" class="">Compare</a></nav>
+  <main class="page-main">
+    <section class="shell page-hero">
+      <p class="kicker">SEASON HUB</p>
+      <h1><span id="calendarYear">2026</span> RACE<br>CALENDAR</h1>
+      <p class="page-lead">Every race weekend in one place. Open any round for its full session schedule and result.</p>
+    </section>
+
+    <section class="shell page-section">
+      <div class="page-toolbar">
+        <div>
+          <span class="toolbar-label">SEASON PROGRESS</span>
+          <strong id="seasonProgress">Loading…</strong>
+        </div>
+        <div class="legend">
+          <span><i class="legend-dot complete"></i> Complete</span>
+          <span><i class="legend-dot current"></i> Race week</span>
+          <span><i class="legend-dot upcoming"></i> Upcoming</span>
+        </div>
+      </div>
+      <div class="calendar-grid" id="calendarGrid">
+        <div class="page-loader">Loading season calendar…</div>
+      </div>
+    </section>
+  </main>
+  <footer>
+  <div class="shell footer-inner">
+    <div>
+      <a class="brand footer-brand" href="index.html">
+        <span class="brand-mark">A</span>
+        <span class="brand-copy"><strong>APEX</strong><small>MOTORSPORT DATA</small></span>
+      </a>
+      <p>Independent motorsport statistics and history project.</p>
+    </div>
+    <div class="footer-meta">
+      <p>Data: OpenF1</p>
+      <p>Not affiliated with Formula One Management, Formula One Licensing B.V. or the FIA.</p>
+    </div>
+  </div>
+</footer>
+  <script src="common.js"></script>
+  <script src="calendar.js"></script>
+</body>
+</html>
