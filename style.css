@@ -2213,3 +2213,5 @@ footer {
   .season-card { min-height:155px; padding:14px; }
   .season-year { font-size:33px; }
 }
+
+.build-id{opacity:.55;font-size:8px!important;letter-spacing:.08em;text-transform:uppercase;}

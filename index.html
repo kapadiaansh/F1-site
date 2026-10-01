@@ -10,8 +10,7 @@
   />
   <title>APEX // Motorsport Data</title>
 
-  <link rel="preconnect" href="https://api.openf1.org" crossorigin />
-  <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=6" />
 </head>
 
 <body>
@@ -39,7 +38,7 @@
     <div class="header-actions">
       <span class="data-pill">
         <span class="status-dot"></span>
-        OPENF1 DATA
+        LOCAL SNAPSHOT
       </span>
       <button class="menu-button" id="menuButton" aria-label="Open navigation" aria-expanded="false">
         <span></span><span></span>
@@ -65,32 +64,32 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <p class="kicker">THE NEXT LIGHTS OUT</p>
-          <h1 id="nextRaceName">Loading next race…</h1>
+          <h1 id="nextRaceName">Bahrain Grand Prix in Malaysia</h1>
 
           <div class="race-meta">
-            <span id="nextRaceLocation">Fetching calendar</span>
+            <span id="nextRaceLocation">Sepang, Malaysia</span>
             <span class="meta-separator"></span>
-            <span id="nextRaceDates">—</span>
+            <span id="nextRaceDates">OCT 2–4, 2026</span>
           </div>
 
           <div class="countdown" id="countdown" aria-label="Countdown to next session">
             <div>
-              <strong id="days">--</strong>
+              <strong id="days">01</strong>
               <span>DAYS</span>
             </div>
             <i>:</i>
             <div>
-              <strong id="hours">--</strong>
+              <strong id="hours">00</strong>
               <span>HRS</span>
             </div>
             <i>:</i>
             <div>
-              <strong id="minutes">--</strong>
+              <strong id="minutes">00</strong>
               <span>MIN</span>
             </div>
             <i>:</i>
             <div>
-              <strong id="seconds">--</strong>
+              <strong id="seconds">00</strong>
               <span>SEC</span>
             </div>
           </div>
@@ -108,11 +107,11 @@
           </div>
 
           <div class="session-feature">
-            <span class="session-number" id="nextSessionCode">R</span>
+            <span class="session-number" id="nextSessionCode">W</span>
             <div>
-              <small id="nextSessionDay">—</small>
-              <h2 id="nextSessionName">Loading…</h2>
-              <p id="nextSessionTime">—</p>
+              <small id="nextSessionDay">FRI, OCT 2</small>
+              <h2 id="nextSessionName">Race weekend</h2>
+              <p id="nextSessionTime">Session times TBC</p>
             </div>
           </div>
 
@@ -171,17 +170,39 @@
             <span class="circuit-monogram" id="circuitMonogram">GP</span>
           </div>
           <div class="circuit-copy">
-            <small id="circuitCountry">—</small>
-            <h3 id="circuitName">Loading circuit…</h3>
+            <small id="circuitCountry">BAHRAIN</small>
+            <h3 id="circuitName">Sepang International Circuit</h3>
             <p id="circuitType">Grand Prix weekend</p>
           </div>
         </article>
 
         <div class="session-list" id="sessionList">
-          <div class="skeleton-row"></div>
-          <div class="skeleton-row"></div>
-          <div class="skeleton-row"></div>
-        </div>
+          <article class="session-row is-next">
+            <div class="session-date">FRI, OCT 2</div>
+            <div class="session-name">Practice 1</div>
+            <div class="session-time">TBC<small>NEXT</small></div>
+          </article>
+          <article class="session-row">
+            <div class="session-date">FRI, OCT 2</div>
+            <div class="session-name">Practice 2</div>
+            <div class="session-time">TBC<small>UPCOMING</small></div>
+          </article>
+          <article class="session-row">
+            <div class="session-date">SAT, OCT 3</div>
+            <div class="session-name">Practice 3</div>
+            <div class="session-time">TBC<small>UPCOMING</small></div>
+          </article>
+          <article class="session-row">
+            <div class="session-date">SAT, OCT 3</div>
+            <div class="session-name">Qualifying</div>
+            <div class="session-time">TBC<small>UPCOMING</small></div>
+          </article>
+          <article class="session-row">
+            <div class="session-date">SUN, OCT 4</div>
+            <div class="session-name">Race</div>
+            <div class="session-time">TBC<small>UPCOMING</small></div>
+          </article>
+</div>
       </div>
     </section>
 
@@ -205,11 +226,86 @@
           <span>PTS</span>
         </div>
         <div id="standingsBody">
-          <div class="skeleton-table"></div>
-          <div class="skeleton-table"></div>
-          <div class="skeleton-table"></div>
-          <div class="skeleton-table"></div>
-          <div class="skeleton-table"></div>
+          <div class="standing-row">
+            <div class="position">01</div>
+            <div class="competitor">
+              <span class="team-color" style="--team-color:#27F4D2"></span>
+              <div class="competitor-name"><strong>Kimi Antonelli</strong><small>Mercedes</small></div>
+            </div>
+            <div class="points">302<small>PTS</small></div>
+          </div>
+          <div class="standing-row">
+            <div class="position">02</div>
+            <div class="competitor">
+              <span class="team-color" style="--team-color:#27F4D2"></span>
+              <div class="competitor-name"><strong>George Russell</strong><small>Mercedes</small></div>
+            </div>
+            <div class="points">236<small>PTS</small></div>
+          </div>
+          <div class="standing-row">
+            <div class="position">03</div>
+            <div class="competitor">
+              <span class="team-color" style="--team-color:#E80020"></span>
+              <div class="competitor-name"><strong>Lewis Hamilton</strong><small>Ferrari</small></div>
+            </div>
+            <div class="points">199<small>PTS</small></div>
+          </div>
+          <div class="standing-row">
+            <div class="position">04</div>
+            <div class="competitor">
+              <span class="team-color" style="--team-color:#FF8000"></span>
+              <div class="competitor-name"><strong>Lando Norris</strong><small>McLaren</small></div>
+            </div>
+            <div class="points">186<small>PTS</small></div>
+          </div>
+          <div class="standing-row">
+            <div class="position">05</div>
+            <div class="competitor">
+              <span class="team-color" style="--team-color:#E80020"></span>
+              <div class="competitor-name"><strong>Charles Leclerc</strong><small>Ferrari</small></div>
+            </div>
+            <div class="points">179<small>PTS</small></div>
+          </div>
+          <div class="standing-row">
+            <div class="position">06</div>
+            <div class="competitor">
+              <span class="team-color" style="--team-color:#3671C6"></span>
+              <div class="competitor-name"><strong>Max Verstappen</strong><small>Red Bull Racing</small></div>
+            </div>
+            <div class="points">163<small>PTS</small></div>
+          </div>
+          <div class="standing-row">
+            <div class="position">07</div>
+            <div class="competitor">
+              <span class="team-color" style="--team-color:#FF8000"></span>
+              <div class="competitor-name"><strong>Oscar Piastri</strong><small>McLaren</small></div>
+            </div>
+            <div class="points">120<small>PTS</small></div>
+          </div>
+          <div class="standing-row">
+            <div class="position">08</div>
+            <div class="competitor">
+              <span class="team-color" style="--team-color:#3671C6"></span>
+              <div class="competitor-name"><strong>Isack Hadjar</strong><small>Red Bull Racing</small></div>
+            </div>
+            <div class="points">86<small>PTS</small></div>
+          </div>
+          <div class="standing-row">
+            <div class="position">09</div>
+            <div class="competitor">
+              <span class="team-color" style="--team-color:#6692FF"></span>
+              <div class="competitor-name"><strong>Liam Lawson</strong><small>Racing Bulls</small></div>
+            </div>
+            <div class="points">59<small>PTS</small></div>
+          </div>
+          <div class="standing-row">
+            <div class="position">10</div>
+            <div class="competitor">
+              <span class="team-color" style="--team-color:#FF87BC"></span>
+              <div class="competitor-name"><strong>Pierre Gasly</strong><small>Alpine</small></div>
+            </div>
+            <div class="points">41<small>PTS</small></div>
+          </div>
         </div>
       </div>
     </section>
@@ -226,19 +322,33 @@
         <article class="result-card">
           <div class="result-header">
             <div>
-              <small id="latestRaceDate">—</small>
-              <h3 id="latestRaceName">Loading latest race…</h3>
+              <small id="latestRaceDate">SEP 26, 2026</small>
+              <h3 id="latestRaceName">Azerbaijan Grand Prix</h3>
             </div>
             <span class="result-label">RACE RESULT</span>
           </div>
 
           <div class="podium" id="podium">
-            <div class="podium-loading">Fetching podium…</div>
+            <div class="podium-row">
+              <div class="podium-position">P1</div>
+              <div class="podium-driver"><strong>George Russell</strong><small>Mercedes</small></div>
+              <div class="podium-number">#63</div>
+            </div>
+            <div class="podium-row">
+              <div class="podium-position">P2</div>
+              <div class="podium-driver"><strong>Max Verstappen</strong><small>Red Bull Racing</small></div>
+              <div class="podium-number">#3</div>
+            </div>
+            <div class="podium-row">
+              <div class="podium-position">P3</div>
+              <div class="podium-driver"><strong>Isack Hadjar</strong><small>Red Bull Racing</small></div>
+              <div class="podium-number">#6</div>
+            </div>
           </div>
 
           <div class="result-footer">
             <span>Official session data after publication</span>
-            <span>Powered by OpenF1</span>
+            <span>Local 2026 snapshot</span>
           </div>
         </article>
       </div>
@@ -248,10 +358,8 @@
           <span class="status-dot"></span>
           <span>SESSION CENTER</span>
         </div>
-        <h3 id="centerTitle">No session live</h3>
-        <p id="centerCopy">
-          During an active race weekend, this panel will identify the current session.
-        </p>
+        <h3 id="centerTitle">Bahrain Grand Prix in Malaysia next</h3>
+        <p id="centerCopy">Round 16 runs October 2–4 at Sepang International Circuit.</p>
 
         <div class="mini-stat-grid">
           <div>
@@ -260,11 +368,11 @@
           </div>
           <div>
             <small>ROUND</small>
-            <strong id="roundStat">—</strong>
+            <strong id="roundStat">16</strong>
           </div>
           <div>
             <small>NEXT</small>
-            <strong id="nextStat">—</strong>
+            <strong id="nextStat">R16</strong>
           </div>
           <div>
             <small>DATA</small>
@@ -350,15 +458,15 @@
       </div>
 
       <div class="footer-meta">
-        <p>Data: OpenF1</p>
-        <p>Not affiliated with Formula One Management, Formula One Licensing B.V. or the FIA.</p>
+        <p>Current data: local 2026 snapshot</p>
+        <p>Not affiliated with Formula One Management, Formula One Licensing B.V. or the FIA.</p><p class="build-id">Build V6 · static-first</p>
       </div>
     </div>
   </footer>
 
-  <script src="current-snapshot.js"></script>
-  <script src="history-data.js"></script>
-  <script src="current-data.js"></script>
-  <script src="script.js"></script>
+  <script src="current-snapshot.js?v=6"></script>
+  <script src="history-data.js?v=6"></script>
+  <script src="current-data.js?v=6"></script>
+  <script src="script.js?v=6"></script>
 </body>
 </html>
